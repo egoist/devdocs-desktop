@@ -4,7 +4,7 @@ A full-featured desktop app for [DevDocs.io](https://devdocs.io/).
 
 ## About
 
-In case you have no idea about DevDocs, it's some free alternative to the famous [Dash](https://kapeli.com/dash) app on macOS.
+In case you have no idea about DevDocs, it's some free alternative to the famous [Dash](https://kapeli.com/dash) app but as a single-page website.
 
 ## Features
 
