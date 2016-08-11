@@ -6,13 +6,13 @@ A full-featured desktop app for [DevDocs.io](https://devdocs.io/).
 
 In case you have no idea about DevDocs, it's some free alternative to the famous [Dash](https://kapeli.com/dash) app but as a single-page website.
 
-## Features
+## Download
 
-- Offline use.
+You can manually download the latest release [here](https://github.com/egoist/devdocs-app/releases).
 
 ## Todo
 
-- Package for macOS/windows
+- Package for Windows/Linux
 
 ## Development
 
