@@ -9,7 +9,6 @@ In case you have no idea about DevDocs, it's some free alternative to the famous
 ## Features
 
 - Offline use.
-- Multi tabs support (WIP).
 
 ## Todo
 
@@ -24,22 +23,6 @@ $ npm install
 
 $ npm run app
 # edit files, save, refresh and it's done.
-```
-
-The stack we use:
-
-- Electron
-- Vue 2
-- Hyperscript (Vue 2, we don't use template, just the render function and hyperscript)
-
-```js
-const myComponent = {
-  // the render function
-  render(h) {
-    // the following code is exactly hyperscriot
-    return h('div', 'hey!')
-  }
-}
 ```
 
 ## License
