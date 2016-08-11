@@ -3,7 +3,9 @@ const fs = require('fs')
 const path = require('path')
 const electron = require('electron')
 const app = electron.app
+const Menu = electron.Menu
 const BrowserWindow = electron.BrowserWindow
+const appMenu = require('./menu')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -34,7 +36,10 @@ function createWindow () {
 	})
 }
 
-app.on('ready', createWindow)
+app.on('ready', () => {
+  Menu.setApplicationMenu(appMenu)
+  createWindow()
+})
 
 app.on('window-all-closed', function () {
   if (process.platform !== 'darwin') {
