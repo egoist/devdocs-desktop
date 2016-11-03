@@ -2,6 +2,7 @@
 const minimist = require('minimist')
 const packager = require('electron-packager')
 const exec = require('child_process').exec
+const scripy = require('scripy')
 const pkg = require('../app/package.json')
 
 const args = minimist(process.argv.slice(2))
@@ -31,7 +32,9 @@ platforms.macos = () => {
     icon: './build/icon.icns'
   }), (err, paths) => {
     cb(err, paths)
-    exec(`cd dist/devdocs-darwin-x64 && zip -ryXq9 ../devdocs-macos-${pkg.version}.zip devdocs.app`)
+    scripy.sync(`appdmg ./build/appdmg.json ./dist/installers/devdocs-macos-${pkg.version}.dmg`, {
+      stdio: 'inherit'
+    })
   })
 }
 
