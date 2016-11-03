@@ -2,6 +2,9 @@
 
 A full-featured desktop app for [DevDocs.io](https://devdocs.io/).
 
+![2016-08-11 10 55 18](https://cloud.githubusercontent.com/assets/8784712/17592907/b7715f96-6016-11e6-97a4-8f04976460ed.png)
+
+
 ## About
 
 In case you have no idea about DevDocs, it's some free alternative to the famous [Dash](https://kapeli.com/dash) app but as a single-page website.
