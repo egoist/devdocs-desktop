@@ -1,4 +1,4 @@
-const {Menu, shell, remote} = require('electron')
+const {Menu, shell} = require('electron')
 
 const template = [
   {
@@ -39,14 +39,14 @@ const template = [
       {
         label: 'Reload',
         accelerator: 'CmdOrCtrl+R',
-        click (item, focusedWindow) {
+        click(item, focusedWindow) {
           if (focusedWindow) focusedWindow.reload()
         }
       },
       {
         label: 'Toggle Developer Tools',
         accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
-        click (item, focusedWindow) {
+        click(item, focusedWindow) {
           if (focusedWindow) focusedWindow.webContents.toggleDevTools()
         }
       }
@@ -68,7 +68,9 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { shell.openExternal('http://github.com/egoist/devdocs-app') }
+        click() {
+          shell.openExternal('http://github.com/egoist/devdocs-app')
+        }
       }
     ]
   }
