@@ -25,6 +25,7 @@ const cb = (err, paths) => {
 }
 
 platforms.macos = () => {
+  $.rm('./app/yarn.lock')
   $.rm('-rf', './dist')
   $.mkdir('-p', './dist/installers')
   packager(Object.assign({}, defaults, {
