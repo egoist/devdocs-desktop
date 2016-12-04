@@ -3,6 +3,7 @@ const minimist = require('minimist')
 const packager = require('electron-packager')
 const exec = require('child_process').exec
 const scripy = require('scripy')
+const $ = require('shelljs')
 const pkg = require('../app/package.json')
 
 const args = minimist(process.argv.slice(2))
@@ -10,7 +11,6 @@ const target = args._[0]
 
 const platforms = {}
 const defaults = {
-  version: '1.3.3',
   dir: './app',
   'app-version': pkg.version,
   out: 'dist',
@@ -25,6 +25,8 @@ const cb = (err, paths) => {
 }
 
 platforms.macos = () => {
+  $.rm('-rf', './dist')
+  $.mkdir('-p', './dist/installers')
   packager(Object.assign({}, defaults, {
     platform: 'darwin',
     arch: 'x64',
