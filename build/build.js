@@ -26,7 +26,7 @@ const cb = (err, paths) => {
 
 platforms.macos = () => {
   $.rm('./app/yarn.lock')
-  $.rm('-rf', './dist')
+  $.rm('-rf', './dist/DevDocs-darwin-x64')
   $.mkdir('-p', './dist/installers')
   packager(Object.assign({}, defaults, {
     platform: 'darwin',
