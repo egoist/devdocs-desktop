@@ -7,11 +7,11 @@ const Menu = electron.Menu
 const BrowserWindow = electron.BrowserWindow
 const appMenu = require('./menu')
 
-const isDev = process.env.NODE_ENV === 'development'
+// const isDev = process.env.NODE_ENV === 'development'
 
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
@@ -20,7 +20,7 @@ function createWindow () {
 
   mainWindow.loadURL(`https://devdocs.io/`)
 
-  mainWindow.on('closed', function () {
+  mainWindow.on('closed', () => {
     mainWindow = null
   })
 
@@ -31,9 +31,9 @@ function createWindow () {
   })
 
   page.on('new-window', (e, url) => {
-		e.preventDefault()
-		electron.shell.openExternal(url)
-	})
+    e.preventDefault()
+    electron.shell.openExternal(url)
+  })
 }
 
 app.on('ready', () => {
@@ -41,13 +41,13 @@ app.on('ready', () => {
   createWindow()
 })
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
-app.on('activate', function () {
+app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }

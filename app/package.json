@@ -2,11 +2,12 @@
   "name": "app",
   "productName": "DevDocs",
   "version": "0.0.2",
-  "description": "",
+  "description": "Desktop client for devdocs.io",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "EGOIST <0x142857@gmail.com>",
+  "license": "MIT",
+  "dependencies": {}
 }
