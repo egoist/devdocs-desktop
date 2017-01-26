@@ -55,7 +55,7 @@ platforms.linux = () => {
 platforms.windows = () => {
   packager(Object.assign({}, defaults, {
     platform: 'win32',
-    arch: 'ia32',
+    arch: 'ia32,x64',
     icon: './build/icon.ico',
     'version-string': {
       productName: pkg.productName
@@ -63,6 +63,7 @@ platforms.windows = () => {
   }), (err, paths) => {
     cb(err, paths)
     exec(`cd dist/devdocs-win32-ia32 && zip -ryXq9 ../devdocs-windows-${pkg.version}.zip *`)
+    exec(`cd dist/devdocs-win32-x64 && zip -ryXq9 ../devdocs-windows-${pkg.version}_x64.zip *`)
   })
 }
 
