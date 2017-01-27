@@ -6,19 +6,28 @@
   "scripts": {
     "test": "eslint ./app/*.js",
     "app": "NODE_ENV=development electron app/index.js",
-    "macos": "node build/build.js macos"
+    "dist": "build"
   },
   "devDependencies": {
     "electron": "^1.4.10",
+    "electron-builder": "^11.7.0",
+    "electron-builder-squirrel-windows": "^11.6.1",
     "electron-devtools-installer": "^2.0.1",
-    "electron-packager": "^7.5.1",
     "eslint": "^3.11.1",
     "eslint-config-rem": "^2.0.2",
-    "minimist": "^1.2.0",
-    "scripy": "^0.3.0",
-    "shelljs": "^0.7.5"
+    "minimist": "^1.2.0"
   },
   "eslintConfig": {
     "extends": "rem/esnext"
+  },
+  "build": {
+    "appId": "com.egoistian.devdocs-app",
+    "category": "public.app-category.developer-tools",
+    "asar": true,
+    "win": {
+      "target": [
+        "squirrel"
+      ]
+    }
   }
 }
