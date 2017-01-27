@@ -31,7 +31,9 @@ $ npm run app
 ## Distribute
 
 ```bash
-$ npm run dist
+$ npm run dist:mac
+$ npm run dist:linux
+$ npm run dist:win
 ```
 
 ## License
