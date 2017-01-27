@@ -13,10 +13,6 @@ In case you have no idea about DevDocs, it's some free alternative to the famous
 
 You can manually download the latest release [here](https://github.com/egoist/devdocs-app/releases).
 
-## Todo
-
-- Package for Windows
-
 ## Development
 
 It's really easy to develop this app, no build tools like Webpack needed here, checkout [./app](/app) to get more:
