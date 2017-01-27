@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "postinstall": "install-app-deps",
     "test": "eslint ./app/*.js",
     "app": "NODE_ENV=development electron app/index.js",
     "dist": "build"
