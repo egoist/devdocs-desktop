@@ -28,6 +28,12 @@ $ npm run app
 # edit files, save, refresh and it's done.
 ```
 
+## Distribute
+
+```bash
+$ npm run dist
+```
+
 ## License
 
 MIT &copy; [EOIST](https://github.com/egoist)
