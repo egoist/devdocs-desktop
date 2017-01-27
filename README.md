@@ -15,7 +15,7 @@ You can manually download the latest release [here](https://github.com/egoist/de
 
 ## Todo
 
-- Package for Windows/Linux
+- Package for Windows
 
 ## Development
 
