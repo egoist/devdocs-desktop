@@ -15,7 +15,11 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     width: 800,
     height: 600,
-    titleBarStyle: 'hidden-inset'
+    titleBarStyle: 'hidden-inset',
+    webPreferences: {
+      nodeIntegration: false,
+      sandbox: true
+    }
   })
 
   mainWindow.loadURL(`https://devdocs.io/`)
