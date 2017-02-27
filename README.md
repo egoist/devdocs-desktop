@@ -34,4 +34,4 @@ $ npm run dist:win
 
 ## License
 
-MIT &copy; [EOIST](https://github.com/egoist)
+MIT &copy; [EGOIST](https://github.com/egoist)
