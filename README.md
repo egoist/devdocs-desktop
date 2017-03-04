@@ -2,7 +2,7 @@
 
 [DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.
 
-<img src="https://cloud.githubusercontent.com/assets/8784712/23579418/c719cd54-0127-11e7-8d08-55627e696947.png" width="800" alt="preview"/>
+<img src="https://cloud.githubusercontent.com/assets/8784712/23579418/c719cd54-0127-11e7-8d08-55627e696947.png" width="1000" alt="preview"/>
 
 ## Features
 
