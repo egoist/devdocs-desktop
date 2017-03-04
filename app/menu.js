@@ -1,4 +1,4 @@
-const {Menu, shell} = require('electron')
+const { Menu, shell } = require('electron')
 
 const template = [
   {
