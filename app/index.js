@@ -39,7 +39,7 @@ function createMainWindow() {
     titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     webPreferences: {
-      preload: path.join(__dirname, 'browser.js'),
+      // preload: path.join(__dirname, 'browser.js'),
       nodeIntegration: false,
       plugins: true
     }
