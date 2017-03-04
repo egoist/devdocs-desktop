@@ -9,5 +9,7 @@
   },
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "electron-window-state": "^4.0.2"
+  }
 }

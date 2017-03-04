@@ -2,6 +2,7 @@
 const fs = require('fs')
 const path = require('path')
 const electron = require('electron')
+const windowStateKeeper = require('electron-window-state')
 const app = electron.app
 const Menu = electron.Menu
 const BrowserWindow = electron.BrowserWindow
@@ -12,18 +13,28 @@ const appMenu = require('./menu')
 let mainWindow
 
 function createWindow() {
+  const mainWindowState = windowStateKeeper({
+    defaultWidth: 800,
+    defaultHeight: 600
+  })
+
   mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: mainWindowState.width,
+    height: mainWindowState.height,
+    x: mainWindowState.x,
+    y: mainWindowState.y,
     titleBarStyle: 'hidden-inset',
     webPreferences: {
       nodeIntegration: false
     }
   })
 
+  mainWindowState.manage(mainWindow)
+
   mainWindow.loadURL(`https://devdocs.io/`)
 
   mainWindow.on('closed', () => {
+    mainWindowState.unmanage(mainWindow)
     mainWindow = null
   })
 
@@ -31,6 +42,7 @@ function createWindow() {
 
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'))
+    page.executeJavaScript(fs.readFileSync(path.join(__dirname, 'browser.js')))
   })
 
   page.on('new-window', (e, url) => {
