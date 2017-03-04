@@ -3,6 +3,7 @@ const fs = require('fs')
 const electron = require('electron')
 const appMenu = require('./menu')
 const config = require('./config')
+const tray = require('./tray')
 
 const app = electron.app
 
@@ -73,6 +74,7 @@ function createMainWindow() {
 app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
+  tray.create(mainWindow)
 
   const page = mainWindow.webContents
 
