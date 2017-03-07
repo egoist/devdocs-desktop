@@ -80,6 +80,11 @@ app.on('ready', () => {
 
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'))
+
+    if (process.platform === 'darwin') {
+      page.insertCSS(fs.readFileSync(path.join(__dirname, 'macos.css'), 'utf8'))
+    }
+
     mainWindow.show()
   })
 
