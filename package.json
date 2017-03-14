@@ -31,9 +31,10 @@
     "category": "public.app-category.developer-tools",
     "asar": true,
     "win": {
-      "target": [
-        "squirrel"
-      ]
+      "target": "nsis"
+    },
+    "nsis": {
+      "oneClick": false
     }
   }
 }
