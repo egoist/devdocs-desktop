@@ -29,6 +29,7 @@
   "build": {
     "appId": "com.egoistian.devdocs-app",
     "category": "public.app-category.developer-tools",
+    "productName": "DevDocs",
     "asar": true,
     "win": {
       "target": "nsis"
