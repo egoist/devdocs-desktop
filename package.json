@@ -58,6 +58,9 @@
     },
     "nsis": {
       "oneClick": false
+    },
+    "linux": {
+      "category": "public.app-category.developer-tools"
     }
   }
 }
