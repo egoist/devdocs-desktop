@@ -1,3 +1,104 @@
-._header {
-  padding-left: 80px;
+/* hide nav menu */
+body ._header {
+  height: 37px;
+  padding-left: 75px;
+}
+._header ._search {
+  padding-top: 0;
+  padding-bottom: 0;
+  -webkit-app-region: no-drag;
+  z-index: 2;
+}
+._sidebar._sidebar {
+  padding-top: 37px;
+}
+._header ._search::before {
+  top: calc(0.7rem - 1px);
+}
+._header ._search-input {
+  border-top: none;
+  border-bottom: none;
+  border-radius: 0;
+}
+._header ._search-active {
+  margin-right: -1px;
+}
+._header ._search-active ._search-clear {
+  top: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0;
+}
+._header ._search-clear::before {
+  position: initial;
+}
+._header ._search-tag {
+  top: 0.5rem;
+}
+
+nav._menu ._menu-title {
+  border-bottom: none;
+  border-right: 1px solid #e1e1e1;
+  width: 100px;
+  min-width: 100px;
+  box-sizing: border-box;
+  background: #eee;
+  border-radius: 0;
+}
+nav._menu ._menu-title-link {
+  display: flex;
+  padding: 0 1rem;
+  align-items: center;
+  height: 100%;
+}
+nav._menu {
+  display: flex;
+  left: calc(100% - 100px);
+  top: 0;
+  white-space: nowrap;
+  width: 101px;
+  height: calc(100% + 1px);
+  right: auto;
+  border-top: none;
+  box-shadow: none;
+  border-radius: 0;
+  font-size: 0.75rem;
+  z-index: 1;
+  transform: initial;
+  opacity: 1;
+  transition: all 0.4s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+._header  ._menu-btn {
+  min-width: 99px;
+  width: 0;
+  transition: min-width 0.4s;
+  overflow: hidden;
+}
+._header ._search-active ~ ._menu-btn {
+  min-width: 0;
+}
+._header  ._menu-btn::before {
+  content: 'DevDocs';
+  font-weight: 500;
+  color: black;
+  letter-spacing: -0.5px;
+  padding-right: 1px;
+  white-space: nowrap;
+}
+._header  ._menu-btn svg {
+  display: none;
+}
+._menu:hover, ._menu.active, ._menu-btn:hover+._menu, ._menu-btn:focus+._menu {
+  width: 519px;
+}
+nav._menu ._menu-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0;
+  border-radius: 0;
 }
