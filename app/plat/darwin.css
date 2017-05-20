@@ -39,28 +39,17 @@ body ._header {
 }
 
 nav._menu ._menu-title {
-  border-bottom: none;
-  border-right: 1px solid #e1e1e1;
-  width: 100px;
-  min-width: 100px;
-  box-sizing: border-box;
-  background: #eee;
-  border-radius: 0;
-}
-nav._menu ._menu-title-link {
-  display: flex;
-  padding: 0 1rem;
-  align-items: center;
-  height: 100%;
+  display: none;
 }
 nav._menu {
   display: flex;
-  left: calc(100% - 100px);
+  left: calc(100% - 1px);
   top: 0;
   white-space: nowrap;
-  width: 101px;
+  width: 0;
   height: calc(100% + 1px);
   right: auto;
+  border-width: 0;
   border-top: none;
   box-shadow: none;
   border-radius: 0;
@@ -89,11 +78,15 @@ nav._menu {
   padding-right: 1px;
   white-space: nowrap;
 }
+.dark-theme ._header ._menu-btn::before {
+  color: #f7f2f2;
+}
 ._header  ._menu-btn svg {
   display: none;
 }
 ._menu:hover, ._menu.active, ._menu-btn:hover+._menu, ._menu-btn:focus+._menu {
-  width: 519px;
+  width: 419px;
+  border-width: 1px;
 }
 nav._menu ._menu-link {
   display: flex;

@@ -40,7 +40,7 @@ function createMainWindow() {
     titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     webPreferences: {
-      // preload: path.join(__dirname, 'browser.js'),
+      preload: path.join(__dirname, 'browser.js'),
       nodeIntegration: false,
       plugins: true
     }
@@ -81,8 +81,12 @@ app.on('ready', () => {
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'))
 
-    if (process.platform === 'darwin') {
-      page.insertCSS(fs.readFileSync(path.join(__dirname, 'macos.css'), 'utf8'))
+    try {
+      page.insertCSS(fs.readFileSync(path.join(__dirname, 'plat', process.platform + '.css'), 'utf8'))
+    } catch (err) {
+      if (err.code !== 'ENOENT') {
+        throw err
+      }
     }
 
     mainWindow.show()
