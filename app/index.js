@@ -1,9 +1,11 @@
 const path = require('path')
 const fs = require('fs')
 const electron = require('electron')
+const mkdirp = require('mkdirp')
 const appMenu = require('./menu')
 const config = require('./config')
 const tray = require('./tray')
+const { configDir } = require('./utils')
 
 const app = electron.app
 
@@ -27,6 +29,18 @@ if (isAlreadyRunning) {
   app.quit()
 }
 
+function ensureCustomFiles() {
+  mkdirp.sync(configDir())
+  const css = configDir('custom.css')
+  const js = configDir('custom.js')
+  if (!fs.existsSync(css)) {
+    fs.writeFileSync(css, '', 'utf8')
+  }
+  if (!fs.existsSync(js)) {
+    fs.writeFileSync(js, '', 'utf8')
+  }
+}
+
 function createMainWindow() {
   const lastWindowState = config.get('lastWindowState')
 
@@ -40,7 +54,7 @@ function createMainWindow() {
     titleBarStyle: 'hidden-inset',
     autoHideMenuBar: true,
     webPreferences: {
-      // preload: path.join(__dirname, 'browser.js'),
+      preload: configDir('custom.js'),
       nodeIntegration: false,
       plugins: true
     }
@@ -72,6 +86,7 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
+  ensureCustomFiles()
   electron.Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
   tray.create(mainWindow)
@@ -80,6 +95,7 @@ app.on('ready', () => {
 
   page.on('dom-ready', () => {
     page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'))
+    page.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
 
     if (process.platform === 'darwin') {
       page.insertCSS(fs.readFileSync(path.join(__dirname, 'macos.css'), 'utf8'))
