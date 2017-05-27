@@ -1,7 +1,7 @@
 {
   "name": "DevDocs",
   "productName": "DevDocs",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "Desktop client for devdocs.io",
   "main": "index.js",
   "scripts": {
