@@ -1,6 +1,29 @@
 const { Menu, shell } = require('electron')
 const { configDir } = require('./utils')
 
+const preferences = [
+  {
+    label: 'Preferences',
+    submenu: [
+      {
+        label: 'Custom CSS',
+        click() {
+          shell.openItem(configDir('custom.css'))
+        }
+      },
+      {
+        label: 'Custom JS',
+        click() {
+          shell.openItem(configDir('custom.js'))
+        }
+      }
+    ]
+  },
+  {
+    type: 'separator'
+  }
+]
+
 const template = [
   {
     label: 'Edit',
@@ -69,6 +92,7 @@ const template = [
   {
     role: 'help',
     submenu: [
+      ...(process.platform === 'win32' ? preferences : []),
       {
         label: 'Learn More',
         click() {
@@ -87,28 +111,9 @@ if (process.platform === 'darwin') {
         role: 'about'
       },
       {
-        label: 'Preferences',
-        submenu: [
-          {
-            label: 'Custom CSS',
-            click() {
-              shell.openItem(configDir('custom.css'))
-            }
-          },
-          {
-            label: 'Custom JS',
-            click() {
-              shell.openItem(configDir('custom.js'))
-            }
-          }
-        ]
-      },
-      {
         type: 'separator'
       },
-      {
-        type: 'separator'
-      },
+      ...preferences,
       {
         role: 'services',
         submenu: []
