@@ -14,17 +14,16 @@
     "dist:win": "build --win --ia32"
   },
   "devDependencies": {
-    "electron": "^1.6.2",
-    "electron-builder": "^15.4.3",
-    "electron-builder-squirrel-windows": "^15.3.0",
-    "electron-devtools-installer": "^2.1.0",
-    "eslint-config-rem": "^3.0.0",
+    "electron": "^1.6.10",
+    "electron-builder": "^18.0.1",
+    "electron-builder-squirrel-windows": "^18.0.0",
+    "electron-devtools-installer": "^2.2.0",
+    "eslint-config-rem": "^3.1.0",
     "minimist": "^1.2.0",
-    "xo": "^0.17.1"
+    "xo": "^0.18.2"
   },
   "xo": {
-    "extends": "rem",
-    "esnext": true
+    "extends": "rem/prettier"
   },
   "build": {
     "appId": "com.egoistian.devdocs-app",
