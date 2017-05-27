@@ -3,3 +3,4 @@ node_modules
 .DS_Store
 dist/
 app/yarn.lock
+app/package-lock.json
