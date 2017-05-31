@@ -1,5 +1,7 @@
 # DevDocs App
 
+[![version](https://img.shields.io/github/release/egoist/devdocs-app.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads](https://img.shields.io/github/downloads/egoist/devdocs-app/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-app/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases/latest) [![build](https://img.shields.io/circleci/project/egoist/devdocs-app/dev.svg?style=flat-square)](https://circleci.com/gh/egoist/devdocs-app) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate)
+
 [DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.
 
 <img src="https://cloud.githubusercontent.com/assets/8784712/23579418/c719cd54-0127-11e7-8d08-55627e696947.png" width="1000" alt="preview"/>
