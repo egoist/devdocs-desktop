@@ -52,7 +52,7 @@ webview.addEventListener('did-stop-loading', () => {
   win.setTitle(webview.getTitle())
 })
 
-webview.addEventListener('new-window', (e, url) => {
+webview.addEventListener('new-window', e => {
   e.preventDefault()
   shell.openExternal(e.url)
 })

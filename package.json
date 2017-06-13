@@ -24,7 +24,10 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": "rem/prettier"
+    "extends": "rem/prettier",
+    "envs": [
+      "browser"
+    ]
   },
   "build": {
     "appId": "com.egoistian.devdocs-app",

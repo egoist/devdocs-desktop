@@ -1,7 +1,5 @@
 const path = require('path')
-const fs = require('fs')
 const electron = require('electron')
-const isDev = require('electron-is-dev')
 const appMenu = require('./menu')
 const config = require('./config')
 const tray = require('./tray')

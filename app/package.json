@@ -14,7 +14,6 @@
     "electron-context-menu": "^0.9.1",
     "electron-debug": "^1.1.0",
     "electron-in-page-search": "^1.2.3",
-    "electron-is-dev": "^0.1.2",
     "mkdirp": "^0.5.1"
   }
 }
