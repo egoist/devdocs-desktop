@@ -61,6 +61,16 @@ const template = [
     label: 'View',
     submenu: [
       {
+        label: 'Search In Page',
+        accelerator: 'CmdOrCtrl+F',
+        click(item, focusedWindow) {
+          focusedWindow.webContents.send('toggle-search')
+        }
+      },
+      {
+        type: 'separator'
+      },
+      {
         label: 'Reload',
         accelerator: 'CmdOrCtrl+R',
         click(item, focusedWindow) {

@@ -1,0 +1,24 @@
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font: 14px/1.4 -apple-system,
+    BlinkMacSystemFont,
+    "San Francisco",
+    "Segoe UI",
+    Roboto,
+    Ubuntu,
+    "Helvetica Neue",
+    Arial,
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.webview {
+  height: 100%;
+}
