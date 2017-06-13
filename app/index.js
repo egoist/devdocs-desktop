@@ -7,6 +7,9 @@ const tray = require('./tray')
 const app = electron.app
 
 require('electron-debug')()
+require('electron-context-menu')({
+  showInspectElement: true
+})
 
 let mainWindow
 let isQuitting = false

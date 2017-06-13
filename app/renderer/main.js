@@ -4,6 +4,7 @@ const mkdirp = require('mkdirp')
 const contextMenu = require('electron-context-menu')
 const searchInPage = require('electron-in-page-search').default
 const { configDir } = require('../utils')
+const Searcher = require('./searcher')
 
 const win = remote.getCurrentWindow()
 
@@ -29,14 +30,10 @@ webview.preload = configDir('custom.js')
 document.body.appendChild(webview)
 
 // Initialize in-page searcher
-const inPageSearch = searchInPage(webview)
+const searcher = new Searcher(webview)
 
 ipcRenderer.on('toggle-search', () => {
-  if (inPageSearch.opened) {
-    inPageSearch.closeSearchWindow()
-  } else {
-    inPageSearch.openSearchWindow()
-  }
+  searcher.toggle()
 })
 
 webview.addEventListener('dom-ready', () => {
@@ -45,10 +42,6 @@ webview.addEventListener('dom-ready', () => {
   // Add context menus
   contextMenu({
     window: webview,
-    showInspectElement: true
-  })
-  contextMenu({
-    window: inPageSearch.searcher,
     showInspectElement: true
   })
 })
