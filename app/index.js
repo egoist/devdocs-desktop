@@ -63,13 +63,16 @@ app.on('ready', () => {
   mainWindow = createMainWindow()
   tray.create(mainWindow)
 
-  const ret = electron.globalShortcut.register('CmdOrCtrl+Shift+D', () => {
-    if (mainWindow.isVisible()) {
-      mainWindow.hide()
-    } else {
-      mainWindow.show()
+  const ret = electron.globalShortcut.register(
+    config.get('shortcuts.toggleApp'),
+    () => {
+      if (mainWindow.isVisible()) {
+        mainWindow.hide()
+      } else {
+        mainWindow.show()
+      }
     }
-  })
+  )
 
   if (!ret) {
     console.log('shortcut registration failed')
