@@ -10,9 +10,11 @@
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "electron-config": "^0.2.1",
-    "electron-context-menu": "^0.8.0",
+    "electron-config": "^1.0.0",
+    "electron-context-menu": "^0.9.1",
     "electron-debug": "^1.1.0",
+    "electron-in-page-search": "^1.2.3",
+    "electron-is-dev": "^0.1.2",
     "mkdirp": "^0.5.1"
   }
 }
