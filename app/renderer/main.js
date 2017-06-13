@@ -2,7 +2,6 @@ const fs = require('fs')
 const { ipcRenderer, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
 const contextMenu = require('electron-context-menu')
-const searchInPage = require('electron-in-page-search').default
 const { configDir } = require('../utils')
 const Searcher = require('./searcher')
 

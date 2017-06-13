@@ -9,3 +9,7 @@
 .searcher__hidden {
   display: none;
 }
+
+.searcher-progress__disabled {
+  display: none;
+}
