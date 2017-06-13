@@ -33,7 +33,6 @@ function createMainWindow() {
 
   const win = new electron.BrowserWindow({
     title: app.getName(),
-    show: false,
     x: lastWindowState.x,
     y: lastWindowState.y,
     width: lastWindowState.width,
@@ -67,12 +66,6 @@ app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
   tray.create(mainWindow)
-
-  const page = mainWindow.webContents
-
-  page.on('dom-ready', () => {
-    mainWindow.show()
-  })
 })
 
 app.on('activate', () => {
