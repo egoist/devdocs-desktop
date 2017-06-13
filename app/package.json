@@ -10,9 +10,11 @@
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.16.2",
     "electron-config": "^1.0.0",
     "electron-context-menu": "^0.9.1",
     "electron-debug": "^1.1.0",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "semver-compare": "^1.0.0"
   }
 }
