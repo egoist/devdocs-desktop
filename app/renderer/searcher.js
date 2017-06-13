@@ -9,12 +9,14 @@ module.exports = class Searcher {
 
   open() {
     if (!this.initialized) this.initialize()
-
+    this.opened = true
     this.$searcher.classList.remove('searcher__hidden')
     this.$input.focus()
   }
 
   close() {
+    this.opened = false
+    this.target.stopFindInPage('clearSelection')
     this.$searcher.classList.add('searcher__hidden')
   }
 
@@ -26,6 +28,7 @@ module.exports = class Searcher {
       <span class="searcher-progress searcher-progress__disabled"></span>
       <button class="searcher-prev">↑</button>
       <button class="searcher-next">↓</button>
+      <button class="searcher-close">✕</button>
     </div>
     `
     document.body.appendChild($wrapper)
@@ -35,32 +38,51 @@ module.exports = class Searcher {
     this.$input.addEventListener('keydown', e => {
       if (e.which === 13) {
         // Enter
-        this.target.findInPage(e.target.value)
+        this.findNext(e.target.value)
       } else if (e.which === 27) {
         // Esc
-        this.target.stopFindInPage('clearSelection')
         this.close()
       }
     })
     this.$prev = this.$searcher.querySelector('.searcher-prev')
     this.$next = this.$searcher.querySelector('.searcher-next')
+    this.$close = this.$searcher.querySelector('.searcher-close')
     this.$prev.addEventListener('click', () => {
-      this.target.findInPage(this.$input.value, {
-        forward: false
-      })
+      this.findPrev(this.$input.value)
     })
     this.$next.addEventListener('click', () => {
-      this.target.findInPage(this.$input.value)
+      this.findNext(this.$input.value)
+    })
+    this.$close.addEventListener('click', () => {
+      this.close()
     })
 
     this.target.addEventListener('found-in-page', e => {
       const { matches, activeMatchOrdinal } = e.result
-      if (this.matches === 0) {
-        this.$progress.classList.add('searcher-progress__disabled')
-      } else {
-        this.$progress.classList.remove('searcher-progress__disabled')
-        this.$progress.textContent = `${activeMatchOrdinal}/${matches}`
-      }
+
+      this.$progress.classList.remove('searcher-progress__disabled')
+      this.$progress.textContent = `${activeMatchOrdinal}/${matches}`
     })
+  }
+
+  findNext(value, opts) {
+    if (value) {
+      this.target.findInPage(value, opts)
+    }
+    return this
+  }
+
+  findPrev(value, opts) {
+    if (value) {
+      this.target.findInPage(
+        Object.assign(
+          {
+            forward: false
+          },
+          opts
+        )
+      )
+    }
+    return this
   }
 }
