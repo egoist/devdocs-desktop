@@ -34,7 +34,7 @@ const checkForUpdates = {
       'https://api.github.com/repos/egoist/devdocs-app/releases/latest'
     const latest = await axios.get(api).then(res => res.data)
 
-    if (semverCompare(latest.tag_name.slice(1), pkg.version)) {
+    if (semverCompare(latest.tag_name.slice(1), pkg.version) === 1) {
       dialog.showMessageBox(
         focusedWindow,
         {
