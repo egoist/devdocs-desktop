@@ -8,7 +8,7 @@
     "postinstall": "install-app-deps && rm -rf app/package-lock.json",
     "test": "npm run lint",
     "lint": "xo",
-    "app": "NODE_ENV=development electron app/index.js",
+    "app": "electron app/index.js",
     "dist": "npm run dist:mac && npm run dist:deb && npm run dist:win",
     "dist:mac": "build --mac",
     "dist:linux": "build --linux deb tar.xz",
@@ -24,7 +24,10 @@
     "xo": "^0.18.2"
   },
   "xo": {
-    "extends": "rem/prettier"
+    "extends": "rem/prettier",
+    "envs": [
+      "browser"
+    ]
   },
   "build": {
     "appId": "com.egoistian.devdocs-app",
