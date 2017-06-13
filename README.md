@@ -12,9 +12,15 @@
 
 When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose Quit to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose Toggle to toggle the window. On Windows, click the tray icon to toggle the window.
 
-### Keyboard shortcuts
+### Build-in shortcuts
 
 `devdocs` the website itself has great built-in shortcuts support, just check the `help` page in the app.
+
+<img src="https://ooo.0o0.ooo/2017/06/14/59402442301b8.png" alt="help" width="300" />
+
+### Global shortcut
+
+Use `Ctrl+Shift+D` (or `Command+Shift+D` on macOS) to toggle the app. 
 
 ## Download
 
