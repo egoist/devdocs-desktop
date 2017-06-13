@@ -139,8 +139,9 @@ const template = [
   {
     role: 'help',
     submenu: [
-      checkForUpdates,
-      ...(process.platform === 'win32' ? preferences : []),
+      ...(process.platform === 'win32'
+        ? [checkForUpdates, ...preferences]
+        : []),
       {
         label: 'Report Issues',
         click() {
