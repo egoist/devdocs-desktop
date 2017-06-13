@@ -25,7 +25,7 @@ ensureCustomFiles()
 const webview = document.createElement('webview')
 webview.className = 'webview'
 webview.src = 'https://devdocs.io'
-webview.preload = configDir('custom.js')
+webview.preload = `file://${configDir('custom.js')}`
 document.body.appendChild(webview)
 
 // Initialize in-page searcher
