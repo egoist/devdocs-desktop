@@ -39,10 +39,6 @@ function createMainWindow() {
     height: lastWindowState.height
   })
 
-  if (process.platform === 'darwin') {
-    win.setSheetOffset(40)
-  }
-
   const url = `file://${path.join(__dirname, 'renderer', 'index.html')}`
 
   win.loadURL(url)
