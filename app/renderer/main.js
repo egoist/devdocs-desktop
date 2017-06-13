@@ -40,7 +40,6 @@ ipcRenderer.on('toggle-search', () => {
 })
 
 webview.addEventListener('dom-ready', () => {
-  inPageSearch.initialize()
   // Insert custom css
   webview.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
   // Add context menus
