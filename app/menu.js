@@ -104,9 +104,9 @@ const template = [
     submenu: [
       ...(process.platform === 'win32' ? preferences : []),
       {
-        label: 'Learn More',
+        label: 'Report Issues',
         click() {
-          shell.openExternal('http://github.com/egoist/devdocs-app')
+          shell.openExternal('http://github.com/egoist/devdocs-app/issues/new')
         }
       }
     ]
