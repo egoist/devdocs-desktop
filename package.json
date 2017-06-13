@@ -33,26 +33,6 @@
     "appId": "com.egoistian.devdocs-app",
     "productName": "DevDocs",
     "asar": true,
-    "dmg": {
-      "background": "build/background@2x.png",
-      "contents": [
-        {
-          "x": 410,
-          "y": 150,
-          "type": "link",
-          "path": "/Applications"
-        },
-        {
-          "x": 130,
-          "y": 150,
-          "type": "file"
-        }
-      ],
-      "window": {
-        "width": 494,
-        "height": 270
-      }
-    },
     "mac": {
       "category": "public.app-category.developer-tools"
     },
