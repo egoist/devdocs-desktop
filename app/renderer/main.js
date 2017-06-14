@@ -82,8 +82,7 @@ async function checkUpdates() {
 
   if (semverCompare(latest.tag_name.slice(1), pkg.version) === 1) {
     const notifier = new Notification('DevDocs', {
-      body: `A new version (${latest.tag_name}) for DevDocs app is available, click to view details!`,
-      requireInteraction: true
+      body: `A new version (${latest.tag_name}) is available, click here to view more details!`
     })
     notifier.onclick = () => {
       shell.openExternal(
