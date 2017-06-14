@@ -1,6 +1,6 @@
 const path = require('path')
 const electron = require('electron')
-const appMenu = require('./menu')
+const createMenu = require('./menu')
 const config = require('./config')
 const tray = require('./tray')
 
@@ -26,6 +26,14 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
 
 if (isAlreadyRunning) {
   app.quit()
+}
+
+function toggleWindow() {
+  if (mainWindow.isVisible()) {
+    mainWindow.hide()
+  } else {
+    mainWindow.show()
+  }
 }
 
 function createMainWindow() {
@@ -67,7 +75,11 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
-  electron.Menu.setApplicationMenu(appMenu)
+  electron.Menu.setApplicationMenu(
+    createMenu({
+      toggleWindow
+    })
+  )
   mainWindow = createMainWindow()
   tray.create(mainWindow)
 
@@ -75,21 +87,6 @@ app.on('ready', () => {
   page.on('dom-ready', () => {
     mainWindow.show()
   })
-
-  const ret = electron.globalShortcut.register(
-    config.get('shortcuts.toggleApp'),
-    () => {
-      if (mainWindow.isVisible()) {
-        mainWindow.hide()
-      } else {
-        mainWindow.show()
-      }
-    }
-  )
-
-  if (!ret) {
-    console.log('shortcut registration failed')
-  }
 })
 
 app.on('activate', () => {
