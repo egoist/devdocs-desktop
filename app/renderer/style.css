@@ -24,7 +24,7 @@ body {
 }
 
 .header {
-  height: 23px;
+  height: 24px;
   display: none;
   align-items: center;
   justify-content: center;
@@ -46,4 +46,15 @@ body {
 
 .is-darwin .webview {
   height: calc(100% - 24px);
+}
+
+.is-dark-mode {
+  background: #24282a;
+}
+
+.is-dark-mode .header {
+  background: #1c1c1c;
+  border-bottom: 1px solid #151515;
+  border-right: 1px solid #000;
+  color: #cbd0d0;
 }
