@@ -3,6 +3,7 @@ const electron = require('electron')
 const createMenu = require('./menu')
 const config = require('./config')
 const tray = require('./tray')
+const { toggleGlobalShortcut } = require('./utils')
 
 const app = electron.app
 
@@ -75,6 +76,19 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
+  const shortcut = config.get('shortcut')
+  for (const name in shortcut) {
+    const accelerator = shortcut[name]
+    if (accelerator) {
+      toggleGlobalShortcut({
+        name,
+        accelerator,
+        registered: false,
+        action: toggleWindow
+      })
+    }
+  }
+
   electron.Menu.setApplicationMenu(
     createMenu({
       toggleWindow
