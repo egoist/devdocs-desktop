@@ -43,6 +43,10 @@ function createMainWindow() {
     titleBarStyle: 'hidden'
   })
 
+  if (process.platform === 'darwin') {
+    win.setSheetOffset(24)
+  }
+
   const url = `file://${path.join(__dirname, 'renderer', 'index.html')}`
 
   win.loadURL(url)
