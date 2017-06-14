@@ -22,3 +22,28 @@ body {
 .webview {
   height: 100%;
 }
+
+.header {
+  height: 23px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  border-bottom: 1px solid #e2e2e2;
+  -webkit-app-region: drag;
+  user-select: none;
+}
+
+.header .app-title {
+  font-size: 12px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.is-darwin .header {
+  display: flex;
+}
+
+.is-darwin .webview {
+  height: calc(100% - 24px);
+}

@@ -1,3 +1,4 @@
+const os = require('os')
 const fs = require('fs')
 const { ipcRenderer, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
@@ -19,38 +20,46 @@ function ensureCustomFiles() {
   }
 }
 
-ensureCustomFiles()
+function createWebView() {
+  console.log('init webview')
+  // Create webview
+  const webview = document.createElement('webview')
+  webview.className = 'webview'
+  webview.src = 'https://devdocs.io'
+  webview.preload = `file://${configDir('custom.js')}`
+  document.body.appendChild(webview)
 
-// Create webview
-const webview = document.createElement('webview')
-webview.className = 'webview'
-webview.src = 'https://devdocs.io'
-webview.preload = `file://${configDir('custom.js')}`
-document.body.appendChild(webview)
+  // Initialize in-page searcher
+  const searcher = new Searcher(webview)
 
-// Initialize in-page searcher
-const searcher = new Searcher(webview)
-
-ipcRenderer.on('toggle-search', () => {
-  searcher.toggle()
-})
-
-webview.addEventListener('dom-ready', () => {
-  // Insert custom css
-  webview.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
-  // Add context menus
-  contextMenu({
-    window: webview,
-    showInspectElement: true
+  ipcRenderer.on('toggle-search', () => {
+    searcher.toggle()
   })
-})
 
-// Update app title
-webview.addEventListener('did-stop-loading', () => {
-  win.setTitle(webview.getTitle())
-})
+  webview.addEventListener('dom-ready', () => {
+    // Insert custom css
+    webview.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
+    // Add context menus
+    contextMenu({
+      window: webview,
+      showInspectElement: true
+    })
+  })
 
-webview.addEventListener('new-window', e => {
-  e.preventDefault()
-  shell.openExternal(e.url)
-})
+  // Update app title
+  webview.addEventListener('did-stop-loading', () => {
+    const title = webview.getTitle()
+    win.setTitle(title)
+    document.getElementById('title').textContent = title
+  })
+
+  webview.addEventListener('new-window', e => {
+    e.preventDefault()
+    shell.openExternal(e.url)
+  })
+}
+
+ensureCustomFiles()
+createWebView()
+
+document.body.className = `is-${os.platform()}`
