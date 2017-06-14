@@ -160,22 +160,6 @@ function createMenu(opts) {
           role: 'close'
         }
       ]
-    },
-    {
-      role: 'help',
-      submenu: [
-        ...(process.platform === 'win32'
-          ? [checkForUpdates, ...preferences]
-          : []),
-        {
-          label: 'Report Issues',
-          click() {
-            shell.openExternal(
-              'http://github.com/egoist/devdocs-app/issues/new'
-            )
-          }
-        }
-      ]
     }
   ]
 
@@ -256,7 +240,24 @@ function createMenu(opts) {
         role: 'front'
       }
     ]
+  } else {
+    template.push({
+      label: 'Preferences',
+      submenu: [...preferences[0].submenu, preferences[1], checkForUpdates]
+    })
   }
+
+  template.push({
+    role: 'help',
+    submenu: [
+      {
+        label: 'Report Issues',
+        click() {
+          shell.openExternal('http://github.com/egoist/devdocs-app/issues/new')
+        }
+      }
+    ]
+  })
 
   return Menu.buildFromTemplate(template)
 }
