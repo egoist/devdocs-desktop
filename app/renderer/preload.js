@@ -1,7 +1,9 @@
 const { ipcRenderer } = require('electron')
 
 document.addEventListener('change', e => {
-  switchMode(e.target.checked)
+  if (e.target.name === 'dark') {
+    switchMode(e.target.checked)
+  }
 })
 
 switchMode(/dark=1;/.test(document.cookie))
