@@ -10,7 +10,8 @@ function updateMenu(opts) {
 }
 
 function createMenu(opts) {
-  const toggleAppAccelerator = config.get('shortcut.toggleApp') || 'CmdOrCtrl+/'
+  const toggleAppAccelerator =
+    config.get('shortcut.toggleApp') || 'CmdOrCtrl+Shift+D'
   const toggleAppAcceleratorRegistered = globalShortcut.isRegistered(
     toggleAppAccelerator
   )
