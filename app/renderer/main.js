@@ -5,8 +5,8 @@ const { ipcRenderer, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
 const contextMenu = require('electron-context-menu')
 const { configDir } = require('../utils')
-const Searcher = require('./searcher')
 const config = require('../config')
+const Searcher = require('./searcher')
 
 const win = remote.getCurrentWindow()
 
