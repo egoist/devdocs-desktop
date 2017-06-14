@@ -10,9 +10,9 @@ function updateMenu(opts) {
 }
 
 function createMenu(opts) {
-  const globalShortcutAccelerator = 'CmdOrCtrl+/'
-  const hasGlobalShortcut = globalShortcut.isRegistered(
-    globalShortcutAccelerator
+  const toggleAppAccelerator = config.get('shortcut.toggleApp') || 'CmdOrCtrl+/'
+  const toggleAppAcceleratorRegistered = globalShortcut.isRegistered(
+    toggleAppAccelerator
   )
 
   const preferences = [
@@ -32,12 +32,12 @@ function createMenu(opts) {
           }
         },
         {
-          label: `${hasGlobalShortcut ? 'Disable' : 'Enable'} Global Shortcut`,
+          label: `${toggleAppAcceleratorRegistered ? 'Disable' : 'Enable'} Global Shortcut`,
           click() {
             toggleGlobalShortcut({
               name: 'toggleApp',
-              registered: hasGlobalShortcut,
-              accelerator: globalShortcutAccelerator,
+              registered: toggleAppAcceleratorRegistered,
+              accelerator: toggleAppAccelerator,
               action: opts.toggleWindow
             })
             updateMenu(opts)
