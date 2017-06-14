@@ -11,6 +11,10 @@
   border-radius: 0 0 0 3px;
 }
 
+.is-darwin .searcher {
+  top: 24px;
+}
+
 .searcher-progress {
   height: 30px;
   display: inline-flex;
