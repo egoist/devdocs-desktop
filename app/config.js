@@ -8,6 +8,7 @@ module.exports = new Config({
     },
     shortcuts: {
       toggleApp: 'CmdOrCtrl+Shift+D'
-    }
+    },
+    mode: 'dark'
   }
 })
