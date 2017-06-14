@@ -1,12 +1,16 @@
 const { Menu, shell, dialog, globalShortcut } = require('electron')
 const axios = require('axios')
 const semverCompare = require('semver-compare')
-const { configDir } = require('./utils')
+const { configDir, toggleGlobalShortcut } = require('./utils')
 const pkg = require('./package')
 const config = require('./config')
 
+function updateMenu(opts) {
+  Menu.setApplicationMenu(createMenu(opts))
+}
+
 function createMenu(opts) {
-  const globalShortcutAccelerator = config.get('shortcuts.toggleApp')
+  const globalShortcutAccelerator = 'CmdOrCtrl+/'
   const hasGlobalShortcut = globalShortcut.isRegistered(
     globalShortcutAccelerator
   )
@@ -30,19 +34,13 @@ function createMenu(opts) {
         {
           label: `${hasGlobalShortcut ? 'Disable' : 'Enable'} Global Shortcut`,
           click() {
-            if (hasGlobalShortcut) {
-              globalShortcut.unregister(globalShortcutAccelerator)
-            } else {
-              const ret = globalShortcut.register(
-                globalShortcutAccelerator,
-                opts.toggleWindow
-              )
-
-              if (!ret) {
-                console.log('shortcut registration failed')
-              }
-            }
-            Menu.setApplicationMenu(createMenu(opts))
+            toggleGlobalShortcut({
+              name: 'toggleApp',
+              registered: hasGlobalShortcut,
+              accelerator: globalShortcutAccelerator,
+              action: opts.toggleWindow
+            })
+            updateMenu(opts)
           }
         }
       ]

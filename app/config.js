@@ -1,4 +1,4 @@
-const Config = require('electron-config')
+const Config = require('electron-store')
 
 module.exports = new Config({
   defaults: {
@@ -6,8 +6,8 @@ module.exports = new Config({
       width: 800,
       height: 600
     },
-    shortcuts: {
-      toggleApp: 'CmdOrCtrl+Shift+D'
+    shortcut: {
+      toggleApp: null
     },
     mode: 'dark'
   }
