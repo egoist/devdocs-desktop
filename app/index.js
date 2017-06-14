@@ -36,7 +36,11 @@ function createMainWindow() {
     x: lastWindowState.x,
     y: lastWindowState.y,
     width: lastWindowState.width,
-    height: lastWindowState.height
+    height: lastWindowState.height,
+    minWidth: 600,
+    minHeight: 400,
+    show: false,
+    titleBarStyle: 'hidden'
   })
 
   const url = `file://${path.join(__dirname, 'renderer', 'index.html')}`
@@ -62,6 +66,11 @@ app.on('ready', () => {
   electron.Menu.setApplicationMenu(appMenu)
   mainWindow = createMainWindow()
   tray.create(mainWindow)
+
+  const page = mainWindow.webContents
+  page.on('dom-ready', () => {
+    mainWindow.show()
+  })
 
   const ret = electron.globalShortcut.register(
     config.get('shortcuts.toggleApp'),
