@@ -1,11 +1,10 @@
 const path = require('path')
-const electron = require('electron')
+const { app, BrowserWindow, Menu } = require('electron')
 const createMenu = require('./menu')
 const config = require('./config')
 const tray = require('./tray')
+const updater = require('./updater')
 const { toggleGlobalShortcut } = require('./utils')
-
-const app = electron.app
 
 require('electron-debug')()
 require('electron-context-menu')({
@@ -40,7 +39,7 @@ function toggleWindow() {
 function createMainWindow() {
   const lastWindowState = config.get('lastWindowState')
 
-  const win = new electron.BrowserWindow({
+  const win = new BrowserWindow({
     title: app.getName(),
     x: lastWindowState.x,
     y: lastWindowState.y,
@@ -89,7 +88,7 @@ app.on('ready', () => {
     }
   }
 
-  electron.Menu.setApplicationMenu(
+  Menu.setApplicationMenu(
     createMenu({
       toggleWindow
     })
@@ -101,6 +100,8 @@ app.on('ready', () => {
   page.on('dom-ready', () => {
     mainWindow.show()
   })
+
+  updater.init()
 })
 
 app.on('activate', () => {
