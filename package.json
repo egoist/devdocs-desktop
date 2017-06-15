@@ -1,23 +1,40 @@
 {
   "private": true,
   "name": "devdocs-app",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "version": "0.5.1",
+  "description": "Desktop client for devdocs.io",
+  "author": {
+    "name": "EGOIST",
+    "email": "0x142857@gmail.com",
+    "url": "https://github.com/egoist"
+  },
+  "license": "MIT",
+  "main": "app/index.js",
   "scripts": {
-    "postinstall": "install-app-deps && rm -rf app/package-lock.json",
+    "postinstall": "install-app-deps",
     "test": "npm run lint",
     "lint": "xo",
     "app": "electron app/index.js",
-    "dist": "npm run dist:mac && npm run dist:deb && npm run dist:win",
-    "dist:mac": "build --mac",
-    "dist:linux": "build --linux deb tar.xz",
-    "dist:win": "build --win --ia32"
+    "pack": "build --dir",
+    "dist": "build",
+    "release": "build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/egoist/devdocs-app.git"
+  },
+  "keywords": [
+    "devdocs",
+    "app",
+    "electron"
+  ],
+  "bugs": {
+    "url": "https://github.com/egoist/devdocs-app/issues"
+  },
+  "homepage": "https://github.com/egoist/devdocs-app#readme",
   "devDependencies": {
-    "electron": "^1.6.10",
-    "electron-builder": "^18.0.1",
-    "electron-builder-squirrel-windows": "^18.0.0",
+    "electron": "^1.6.11",
+    "electron-builder": "^18.6.2",
     "electron-devtools-installer": "^2.2.0",
     "eslint-config-rem": "^3.1.0",
     "minimist": "^1.2.0",
@@ -35,18 +52,28 @@
   "build": {
     "appId": "com.egoistian.devdocs-app",
     "productName": "DevDocs",
+    "compression": "maximum",
     "asar": true,
     "mac": {
       "category": "public.app-category.developer-tools"
     },
     "win": {
-      "target": "nsis"
+      "target": [
+        "nsis",
+        "zip"
+      ]
     },
     "nsis": {
       "oneClick": false
     },
     "linux": {
-      "category": "public.app-category.developer-tools"
+      "synopsis": "DevDocs desktop app",
+      "category": "devel",
+      "target": [
+        "AppImage",
+        "deb",
+        "tar.xz"
+      ]
     }
   }
 }
