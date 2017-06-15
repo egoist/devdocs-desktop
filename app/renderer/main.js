@@ -36,8 +36,8 @@ function createWebView() {
   // Initialize in-page searcher
   const searcher = new Searcher(webview)
 
-  ipc.on('toggle-search', () => {
-    searcher.toggle()
+  ipc.on('open-search', () => {
+    searcher.open()
   })
 
   ipc.on('zoom-in', () => {

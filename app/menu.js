@@ -165,7 +165,7 @@ function createMenu(opts) {
           label: 'Search In Page',
           accelerator: 'CmdOrCtrl+F',
           click(item, focusedWindow) {
-            focusedWindow.webContents.send('toggle-search')
+            focusedWindow.webContents.send('open-search')
           }
         },
         {
