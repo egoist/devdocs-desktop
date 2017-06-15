@@ -1,4 +1,5 @@
-const { ipcRenderer } = require('electron')
+const { ipcRenderer: ipc } = require('electron')
+const config = require('../config')
 
 document.addEventListener('change', e => {
   if (e.target.name === 'dark') {
@@ -10,5 +11,39 @@ switchMode(/dark=1;/.test(document.cookie))
 
 function switchMode(isDark) {
   const mode = isDark ? 'dark' : 'light'
-  ipcRenderer.sendToHost('switch-mode', mode)
+  ipc.sendToHost('switch-mode', mode)
 }
+
+function setZoom(zoomFactor) {
+  const node = document.getElementById('zoomFactor')
+  node.textContent = `body {zoom: ${zoomFactor} !important}`
+  config.set('zoomFactor', zoomFactor)
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const zoomFactor = config.get('zoomFactor') || 1.0
+  const style = document.createElement('style')
+  style.id = 'zoomFactor'
+  document.body.appendChild(style)
+  setZoom(zoomFactor)
+})
+
+ipc.on('zoom-in', () => {
+  const zoomFactor = config.get('zoomFactor') + 0.1
+
+  if (zoomFactor < 1.6) {
+    setZoom(zoomFactor)
+  }
+})
+
+ipc.on('zoom-out', () => {
+  const zoomFactor = config.get('zoomFactor') - 0.1
+
+  if (zoomFactor >= 0.8) {
+    setZoom(zoomFactor)
+  }
+})
+
+ipc.on('zoom-reset', () => {
+  setZoom(1.0)
+})

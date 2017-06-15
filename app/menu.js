@@ -1,9 +1,25 @@
-const { Menu, shell, dialog, globalShortcut } = require('electron')
+const {
+  Menu,
+  shell,
+  dialog,
+  globalShortcut,
+  BrowserWindow
+} = require('electron')
 const axios = require('axios')
 const semverCompare = require('semver-compare')
 const { configDir, toggleGlobalShortcut } = require('./utils')
 const pkg = require('./package')
 const config = require('./config')
+
+function sendAction(action) {
+  const [win] = BrowserWindow.getAllWindows()
+
+  if (process.platform === 'darwin') {
+    win.restore()
+  }
+
+  win.webContents.send(action)
+}
 
 function updateMenu(opts) {
   Menu.setApplicationMenu(createMenu(opts))
@@ -121,6 +137,30 @@ function createMenu(opts) {
     {
       label: 'View',
       submenu: [
+        {
+          label: 'Reset Text Size',
+          accelerator: 'CmdOrCtrl+0',
+          click() {
+            sendAction('zoom-reset')
+          }
+        },
+        {
+          label: 'Increase Text Size',
+          accelerator: 'CmdOrCtrl+Plus',
+          click() {
+            sendAction('zoom-in')
+          }
+        },
+        {
+          label: 'Decrease Text Size',
+          accelerator: 'CmdOrCtrl+-',
+          click() {
+            sendAction('zoom-out')
+          }
+        },
+        {
+          type: 'separator'
+        },
         {
           label: 'Search In Page',
           accelerator: 'CmdOrCtrl+F',
