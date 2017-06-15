@@ -1,7 +1,7 @@
 const os = require('os')
 const path = require('path')
 const fs = require('fs')
-const { ipcRenderer, remote, shell } = require('electron')
+const { ipcRenderer: ipc, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
 const axios = require('axios')
 const semverCompare = require('semver-compare')
@@ -36,8 +36,20 @@ function createWebView() {
   // Initialize in-page searcher
   const searcher = new Searcher(webview)
 
-  ipcRenderer.on('toggle-search', () => {
+  ipc.on('toggle-search', () => {
     searcher.toggle()
+  })
+
+  ipc.on('zoom-in', () => {
+    webview.send('zoom-in')
+  })
+
+  ipc.on('zoom-out', () => {
+    webview.send('zoom-out')
+  })
+
+  ipc.on('zoom-reset', () => {
+    webview.send('zoom-reset')
   })
 
   webview.addEventListener('ipc-message', e => {
