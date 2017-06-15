@@ -12,6 +12,7 @@ module.exports = class Searcher {
     this.opened = true
     this.$searcher.classList.remove('searcher__hidden')
     this.$input.focus()
+    this.$input.select()
   }
 
   close() {
@@ -21,6 +22,7 @@ module.exports = class Searcher {
   }
 
   initialize() {
+    this.initialized = true
     const $wrapper = document.createElement('div')
     $wrapper.innerHTML = `
     <div class="searcher searcher__hidden">
