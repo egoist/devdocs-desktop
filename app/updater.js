@@ -1,11 +1,9 @@
-const { app, BrowserWindow, dialog } = require('electron')
-const os = require('os')
+const { BrowserWindow, dialog } = require('electron')
 const isDev = require('electron-is-dev')
 const { autoUpdater } = require('electron-updater')
 
 exports.init = () => {
-  const platform = os.platform()
-  if (isDev || platform === 'linux') {
+  if (isDev || process.platform === 'linux') {
     return
   }
 
