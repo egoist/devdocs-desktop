@@ -99,9 +99,8 @@ app.on('ready', () => {
   const page = mainWindow.webContents
   page.on('dom-ready', () => {
     mainWindow.show()
+    updater.init()
   })
-
-  updater.init()
 })
 
 app.on('activate', () => {
