@@ -1,4 +1,4 @@
-const { BrowserWindow, dialog } = require('electron')
+const { app, BrowserWindow, dialog } = require('electron')
 const isDev = require('electron-is-dev')
 const { autoUpdater } = require('electron-updater')
 
@@ -19,6 +19,7 @@ exports.init = () => {
 
     dialog.showMessageBox(win, dialogOptions, res => {
       if (res === 0) {
+        app.removeAllListeners('window-all-closed')
         autoUpdater.quitAndInstall(false)
       }
     })
