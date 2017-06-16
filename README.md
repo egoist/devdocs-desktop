@@ -1,6 +1,6 @@
 # DevDocs App
 
-[![version](https://img.shields.io/github/release/egoist/devdocs-app.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads](https://img.shields.io/github/downloads/egoist/devdocs-app/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-app/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases/latest) [![build](https://img.shields.io/circleci/project/egoist/devdocs-app.svg?style=flat-square)](https://circleci.com/gh/egoist/devdocs-app) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate)
+[![version](https://img.shields.io/github/release/egoist/devdocs-app.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads](https://img.shields.io/github/downloads/egoist/devdocs-app/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases) [![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-app/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-app/releases/latest) [![travis](https://img.shields.io/travis/egoist/devdocs-app.svg)](https://travis-ci.org/egoist/devdocs-app) [![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-app.svg)](https://ci.appveyor.com/project/egoist/devdocs-app) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate)
 
 [DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.
 
@@ -22,7 +22,7 @@ When closing the window, the app will continue running in the background, in the
 
 ### Global shortcut
 
-Use `Ctrl+Shift+D` (or `Command+Shift+D` on macOS) to toggle the app. 
+Use `Ctrl+Shift+D` (or `Command+Shift+D` on macOS) to toggle the app.
 
 ## Download
 
