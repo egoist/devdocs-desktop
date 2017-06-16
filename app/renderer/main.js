@@ -3,12 +3,9 @@ const path = require('path')
 const fs = require('fs')
 const { ipcRenderer: ipc, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
-const axios = require('axios')
-const semverCompare = require('semver-compare')
 const contextMenu = require('electron-context-menu')
 const { configDir } = require('../utils')
 const config = require('../config')
-const pkg = require('../package')
 const Searcher = require('./searcher')
 
 const win = remote.getCurrentWindow()
@@ -88,31 +85,11 @@ function createWebView() {
   })
 }
 
-async function checkUpdates() {
-  const api = 'https://api.github.com/repos/egoist/devdocs-app/releases/latest'
-  const latest = await axios.get(api).then(res => res.data)
-
-  if (semverCompare(latest.tag_name.slice(1), pkg.version) === 1) {
-    const notifier = new Notification('DevDocs', {
-      body: `A new version (${latest.tag_name}) is available, click here to view more details!`
-    })
-    notifier.onclick = () => {
-      shell.openExternal(
-        'https://github.com/egoist/devdocs-app/releases/latest'
-      )
-    }
-  }
-}
-
 ensureCustomFiles()
 createWebView()
-checkUpdates()
 
 document.body.classList.add(`is-${os.platform()}`)
 
 if (config.get('mode') === 'dark') {
   document.body.classList.add('is-dark-mode')
 }
-
-// Check for new release everyday
-setInterval(checkUpdates, 1000 * 60 * 60 * 24)

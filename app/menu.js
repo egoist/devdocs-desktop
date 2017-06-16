@@ -1,14 +1,5 @@
-const {
-  Menu,
-  shell,
-  dialog,
-  globalShortcut,
-  BrowserWindow
-} = require('electron')
-const axios = require('axios')
-const semverCompare = require('semver-compare')
+const { Menu, shell, globalShortcut, BrowserWindow } = require('electron')
 const { configDir, toggleGlobalShortcut } = require('./utils')
-const pkg = require('./package')
 const config = require('./config')
 
 function sendAction(action) {
@@ -66,40 +57,6 @@ function createMenu(opts) {
       type: 'separator'
     }
   ]
-
-  const checkForUpdates = {
-    label: 'Check for Updates',
-    async click(item, focusedWindow) {
-      const api =
-        'https://api.github.com/repos/egoist/devdocs-app/releases/latest'
-      const latest = await axios.get(api).then(res => res.data)
-
-      if (semverCompare(latest.tag_name.slice(1), pkg.version) === 1) {
-        dialog.showMessageBox(
-          focusedWindow,
-          {
-            type: 'info',
-            message: 'New updates!',
-            detail: `A new release (${latest.tag_name}) is available, view more details?`,
-            buttons: ['OK', 'Cancel'],
-            defaultId: 0
-          },
-          selected => {
-            if (selected === 0) {
-              shell.openExternal(
-                'https://github.com/egoist/devdocs-app/releases/latest'
-              )
-            }
-          }
-        )
-      } else {
-        dialog.showMessageBox(focusedWindow, {
-          message: 'No updates!',
-          detail: `v${pkg.version} is already the latest version.`
-        })
-      }
-    }
-  }
 
   const template = [
     {
@@ -209,7 +166,6 @@ function createMenu(opts) {
         {
           role: 'about'
         },
-        checkForUpdates,
         {
           type: 'separator'
         },
@@ -282,7 +238,7 @@ function createMenu(opts) {
   } else {
     template.push({
       label: 'Preferences',
-      submenu: [...preferences[0].submenu, preferences[1], checkForUpdates]
+      submenu: preferences[0].submenu
     })
   }
 
