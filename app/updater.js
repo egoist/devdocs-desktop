@@ -17,12 +17,15 @@ exports.init = () => {
 
     const [win] = BrowserWindow.getAllWindows()
 
-    dialog.showMessageBox(win, dialogOptions, res => {
-      if (res === 0) {
-        app.removeAllListeners('window-all-closed')
-        autoUpdater.quitAndInstall(false)
-      }
-    })
+    if (win) {
+      dialog.showMessageBox(win, dialogOptions, res => {
+        if (res === 0) {
+          app.removeAllListeners('window-all-closed')
+          win.close()
+          autoUpdater.quitAndInstall(false)
+        }
+      })
+    }
   })
 
   autoUpdater.checkForUpdates()
