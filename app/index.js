@@ -11,6 +11,8 @@ require('electron-context-menu')({
   showInspectElement: true
 })
 
+app.setAppUserModelId('com.egoistian.devdocs')
+
 let mainWindow
 let isQuitting = false
 

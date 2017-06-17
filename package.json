@@ -50,7 +50,7 @@
     }
   },
   "build": {
-    "appId": "com.egoistian.devdocs-app",
+    "appId": "com.egoistian.devdocs",
     "productName": "DevDocs",
     "compression": "maximum",
     "asar": true,
