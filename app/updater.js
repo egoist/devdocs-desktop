@@ -1,10 +1,9 @@
 const { app, BrowserWindow, dialog } = require('electron')
-const os = require('os')
-const autoUpdater = require('electron-updater').autoUpdater
+const isDev = require('electron-is-dev')
+const { autoUpdater } = require('electron-updater')
 
 exports.init = () => {
-  const platform = os.platform()
-  if (platform === 'linux') {
+  if (isDev || process.platform === 'linux') {
     return
   }
 
@@ -12,22 +11,21 @@ exports.init = () => {
     const dialogOptions = {
       type: 'question',
       defaultId: 0,
-      message: `The update is ready to install, Version ${versionInfo.version} has been downloaded and will be automatically installed`
+      message: `The update for version ${versionInfo.version} is ready to install, do you want to restart the app now?`,
+      buttons: ['OK', 'Cancel']
     }
 
-    const focusedWindow = BrowserWindow.getFocusedWindow()
+    const [win] = BrowserWindow.getAllWindows()
 
-    BrowserWindow.getAllWindows()
-
-    dialog.showMessageBox(focusedWindow, dialogOptions, () => {
-      setImmediate(() => {
-        app.removeAllListeners('window-all-closed')
-        if (focusedWindow !== null) {
-          focusedWindow.close()
+    if (win) {
+      dialog.showMessageBox(win, dialogOptions, res => {
+        if (res === 0) {
+          app.removeAllListeners('window-all-closed')
+          win.close()
+          autoUpdater.quitAndInstall(false)
         }
-        autoUpdater.quitAndInstall(false)
       })
-    })
+    }
   })
 
   autoUpdater.checkForUpdates()
