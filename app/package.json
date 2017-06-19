@@ -30,6 +30,7 @@
     "electron-context-menu": "^0.9.1",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
+    "electron-log": "^2.2.6",
     "electron-store": "^1.1.0",
     "electron-updater": "^2.2.1",
     "mkdirp": "^0.5.1"
