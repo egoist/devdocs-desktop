@@ -1,7 +1,7 @@
 {
   "name": "DevDocs",
   "productName": "DevDocs",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "Desktop client for devdocs.io",
   "author": {
     "name": "EGOIST",
@@ -27,12 +27,14 @@
   },
   "homepage": "https://github.com/egoist/devdocs-app#readme",
   "dependencies": {
+    "axios": "^0.16.2",
     "electron-context-menu": "^0.9.1",
     "electron-debug": "^1.1.0",
     "electron-is-dev": "^0.1.2",
     "electron-log": "^2.2.6",
     "electron-store": "^1.1.0",
     "electron-updater": "^2.2.1",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^0.5.1",
+    "semver-compare": "^1.0.0"
   }
 }

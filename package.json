@@ -1,7 +1,7 @@
 {
   "private": true,
   "name": "devdocs-app",
-  "version": "0.6.0",
+  "version": "0.0.0-this-does-not-matter",
   "description": "Desktop client for devdocs.io",
   "author": {
     "name": "EGOIST",
