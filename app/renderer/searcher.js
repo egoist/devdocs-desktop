@@ -22,7 +22,7 @@ module.exports = class Searcher extends EventEmitter {
   close() {
     this.opened = false
     this.target.stopFindInPage('clearSelection')
-    this.$searcher.classList.add('searcher__hidden')
+    this.hideSearcher()
     this.emit('close')
   }
 
@@ -79,8 +79,7 @@ module.exports = class Searcher extends EventEmitter {
     this.target.addEventListener('found-in-page', e => {
       const { matches, activeMatchOrdinal } = e.result
 
-      this.$progress.classList.remove('searcher-progress__disabled')
-      this.$progress.textContent = `${activeMatchOrdinal}/${matches}`
+      this.showProgress(activeMatchOrdinal, matches)
     })
     this.emit('initialized')
   }
@@ -105,5 +104,16 @@ module.exports = class Searcher extends EventEmitter {
       )
     }
     return this
+  }
+
+  showProgress(current, total) {
+    this.$progress.classList.remove('searcher-progress__disabled')
+    this.$progress.textContent = `${current}/${total}`
+  }
+
+  hideSearcher() {
+    this.$progress.classList.add('searcher-progress__disabled')
+    this.$searcher.classList.add('searcher__hidden')
+    this.$input.value = ''
   }
 }
