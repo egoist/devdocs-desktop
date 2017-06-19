@@ -69,6 +69,7 @@ function createWebView() {
     // Insert custom css
     webview.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
     webview.executeJavaScript(fs.readFileSync(configDir('custom.js'), 'utf8'))
+    webview.focus()
     // Add context menus
     contextMenu({
       window: webview,
