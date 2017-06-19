@@ -33,6 +33,10 @@ function createWebView() {
   // Initialize in-page searcher
   const searcher = new Searcher(webview)
 
+  searcher.on('close', () => {
+    webview.focus()
+  })
+
   ipc.on('open-search', () => {
     searcher.open()
   })

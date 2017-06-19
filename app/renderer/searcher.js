@@ -1,5 +1,8 @@
-module.exports = class Searcher {
+const EventEmitter = require('events')
+
+module.exports = class Searcher extends EventEmitter {
   constructor(target) {
+    super()
     this.target = target
   }
 
@@ -13,12 +16,14 @@ module.exports = class Searcher {
     this.$searcher.classList.remove('searcher__hidden')
     this.$input.focus()
     this.$input.select()
+    this.emit('open')
   }
 
   close() {
     this.opened = false
     this.target.stopFindInPage('clearSelection')
     this.$searcher.classList.add('searcher__hidden')
+    this.emit('close')
   }
 
   initialize() {
@@ -77,6 +82,7 @@ module.exports = class Searcher {
       this.$progress.classList.remove('searcher-progress__disabled')
       this.$progress.textContent = `${activeMatchOrdinal}/${matches}`
     })
+    this.emit('initialized')
   }
 
   findNext(value, opts) {
