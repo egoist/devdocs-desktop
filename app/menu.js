@@ -1,4 +1,10 @@
-const { Menu, shell, globalShortcut, BrowserWindow, dialog } = require('electron')
+const {
+  Menu,
+  shell,
+  globalShortcut,
+  BrowserWindow,
+  dialog
+} = require('electron')
 const axios = require('axios')
 const semverCompare = require('semver-compare')
 const { configDir, toggleGlobalShortcut } = require('./utils')
