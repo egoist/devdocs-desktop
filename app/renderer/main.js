@@ -53,6 +53,10 @@ function createWebView() {
     webview.send('zoom-reset')
   })
 
+  ipc.on('focus-webview', () => {
+    webview.focus()
+  })
+
   webview.addEventListener('ipc-message', e => {
     if (e.channel === 'switch-mode') {
       const [mode] = e.args

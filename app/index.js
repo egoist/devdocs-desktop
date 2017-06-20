@@ -107,6 +107,7 @@ app.on('ready', () => {
 
 app.on('activate', () => {
   mainWindow.show()
+  mainWindow.webContents.send('focus-webview')
 })
 
 app.on('before-quit', () => {
