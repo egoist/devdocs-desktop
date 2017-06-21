@@ -11,14 +11,14 @@ const { configDir, toggleGlobalShortcut } = require('./utils')
 const config = require('./config')
 const pkg = require('./package')
 
-function sendAction(action) {
+function sendAction(action, ...args) {
   const [win] = BrowserWindow.getAllWindows()
 
   if (process.platform === 'darwin') {
     win.restore()
   }
 
-  win.webContents.send(action)
+  win.webContents.send(action, ...args)
 }
 
 function updateMenu(opts) {
