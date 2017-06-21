@@ -33,6 +33,7 @@
   },
   "homepage": "https://github.com/egoist/devdocs-app#readme",
   "devDependencies": {
+    "devtron": "^1.4.0",
     "electron": "^1.6.11",
     "electron-builder": "^18.6.2",
     "electron-devtools-installer": "^2.2.0",
