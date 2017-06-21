@@ -22,6 +22,17 @@ function ensureCustomFiles() {
   }
 }
 
+function createHeader() {
+  const header = document.createElement('header')
+  header.className = 'header'
+  header.innerHTML = `<h1 id="title" class="app-title">Loading DevDocs...</h1>`
+  header.addEventListener('dblclick', () => {
+    win.maximize()
+  })
+
+  document.body.appendChild(header)
+}
+
 function createWebView() {
   // Create webview
   const webview = document.createElement('webview')
@@ -95,6 +106,7 @@ function createWebView() {
 }
 
 ensureCustomFiles()
+createHeader()
 createWebView()
 
 document.body.classList.add(`is-${os.platform()}`)
