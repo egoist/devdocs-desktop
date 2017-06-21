@@ -107,7 +107,17 @@ app.on('ready', () => {
 
 app.on('activate', () => {
   mainWindow.show()
-  mainWindow.webContents.send('focus-webview')
+})
+
+// I have no idea what I'm doing here
+// It just works...
+let hasOpenedOnce
+app.on('browser-window-focus', () => {
+  if (hasOpenedOnce) {
+    mainWindow.webContents.send('focus-webview')
+  } else {
+    hasOpenedOnce = true
+  }
 })
 
 app.on('before-quit', () => {
