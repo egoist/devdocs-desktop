@@ -82,7 +82,12 @@ function createWebView() {
 
   webview.addEventListener('dom-ready', () => {
     // Insert custom css
-    webview.insertCSS(fs.readFileSync(configDir('custom.css'), 'utf8'))
+    const css = `
+    ._app button:focus {
+      outline: none;
+    }
+    `
+    webview.insertCSS(css + fs.readFileSync(configDir('custom.css'), 'utf8'))
     webview.executeJavaScript(fs.readFileSync(configDir('custom.js'), 'utf8'))
     webview.focus()
     // Add context menus
