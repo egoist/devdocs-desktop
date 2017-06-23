@@ -73,7 +73,7 @@ function createMenu(opts) {
       if (!focusedWindow) return
 
       const api =
-        'https://api.github.com/repos/egoist/devdocs-app/releases/latest'
+        'https://api.github.com/repos/egoist/devdocs-desktop/releases/latest'
       const latest = await axios.get(api).then(res => res.data)
 
       if (semverCompare(latest.tag_name.slice(1), pkg.version) === 1) {
@@ -89,7 +89,7 @@ function createMenu(opts) {
           selected => {
             if (selected === 0) {
               shell.openExternal(
-                'https://github.com/egoist/devdocs-app/releases/latest'
+                'https://github.com/egoist/devdocs-desktop/releases/latest'
               )
             }
           }
@@ -294,7 +294,7 @@ function createMenu(opts) {
       {
         label: 'Report Issues',
         click() {
-          shell.openExternal('http://github.com/egoist/devdocs-app/issues/new')
+          shell.openExternal('http://github.com/egoist/devdocs-desktop/issues/new')
         }
       }
     ]

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "devdocs-app",
+  "name": "devdocs-desktop",
   "version": "0.0.0-this-does-not-matter",
   "description": "Desktop client for devdocs.io",
   "author": {
@@ -21,7 +21,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egoist/devdocs-app.git"
+    "url": "git+https://github.com/egoist/devdocs-desktop.git"
   },
   "keywords": [
     "devdocs",
@@ -29,9 +29,9 @@
     "electron"
   ],
   "bugs": {
-    "url": "https://github.com/egoist/devdocs-app/issues"
+    "url": "https://github.com/egoist/devdocs-desktop/issues"
   },
-  "homepage": "https://github.com/egoist/devdocs-app#readme",
+  "homepage": "https://github.com/egoist/devdocs-desktop#readme",
   "devDependencies": {
     "devtron": "^1.4.0",
     "electron": "^1.6.11",
