@@ -15,17 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/egoist/devdocs-app.git"
+    "url": "git+https://github.com/egoist/devdocs-desktop.git"
   },
   "keywords": [
     "devdocs",
     "app",
-    "electron"
+    "electron",
+    "desktop"
   ],
   "bugs": {
-    "url": "https://github.com/egoist/devdocs-app/issues"
+    "url": "https://github.com/egoist/devdocs-desktop/issues"
   },
-  "homepage": "https://github.com/egoist/devdocs-app#readme",
+  "homepage": "https://github.com/egoist/devdocs-desktop#readme",
   "dependencies": {
     "axios": "^0.16.2",
     "electron-context-menu": "^0.9.1",
