@@ -9,6 +9,7 @@ const config = require('../config')
 const Searcher = require('./searcher')
 
 const win = remote.getCurrentWindow()
+let webview // eslint-disable-line prefer-const
 
 function ensureCustomFiles() {
   mkdirp.sync(configDir())
@@ -28,6 +29,9 @@ function createHeader() {
   header.innerHTML = `<h1 id="title" class="app-title">Loading DevDocs...</h1>`
   header.addEventListener('dblclick', () => {
     win.maximize()
+  })
+  header.addEventListener('click', () => {
+    webview.focus()
   })
 
   document.body.appendChild(header)
@@ -108,11 +112,13 @@ function createWebView() {
     e.preventDefault()
     shell.openExternal(e.url)
   })
+
+  return webview
 }
 
 ensureCustomFiles()
 createHeader()
-createWebView()
+webview = createWebView()
 
 document.body.classList.add(`is-${os.platform()}`)
 
