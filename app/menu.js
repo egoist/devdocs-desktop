@@ -294,7 +294,9 @@ function createMenu(opts) {
       {
         label: 'Report Issues',
         click() {
-          shell.openExternal('http://github.com/egoist/devdocs-desktop/issues/new')
+          shell.openExternal(
+            'http://github.com/egoist/devdocs-desktop/issues/new'
+          )
         }
       }
     ]
