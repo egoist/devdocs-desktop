@@ -31,7 +31,7 @@ module.exports = class Searcher extends EventEmitter {
     const $wrapper = document.createElement('div')
     $wrapper.innerHTML = `
     <div class="searcher searcher__hidden">
-      <input class="searcher-input" placeholder="Search..." />
+      <input autofocus type="search" class="searcher-input" placeholder="Search..." />
       <span class="searcher-progress searcher-progress__disabled"></span>
       <button class="searcher-action searcher-prev">
         <svg id="i-chevron-top" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
