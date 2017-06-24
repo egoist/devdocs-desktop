@@ -80,6 +80,7 @@ module.exports = class Searcher extends EventEmitter {
       const { matches, activeMatchOrdinal } = e.result
 
       this.showProgress(activeMatchOrdinal, matches)
+      this.$input.focus()
     })
     this.emit('initialized')
   }
