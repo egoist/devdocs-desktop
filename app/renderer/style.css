@@ -23,6 +23,10 @@ body {
   height: 100%;
 }
 
+.webview:focus {
+  outline: none;
+}
+
 .header {
   height: 24px;
   display: none;
