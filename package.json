@@ -70,7 +70,7 @@
     },
     "linux": {
       "synopsis": "DevDocs desktop app",
-      "category": "devel",
+      "category": "Development",
       "target": [
         "AppImage",
         "deb",
