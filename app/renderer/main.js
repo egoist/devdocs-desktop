@@ -90,6 +90,9 @@ function createWebView() {
     ._app button:focus {
       outline: none;
     }
+    ._app button._search-clear {
+      top: .5rem;
+    }
     `
     webview.insertCSS(css + fs.readFileSync(configDir('custom.css'), 'utf8'))
     webview.executeJavaScript(fs.readFileSync(configDir('custom.js'), 'utf8'))
