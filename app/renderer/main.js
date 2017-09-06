@@ -8,6 +8,8 @@ const { configDir } = require('../utils')
 const config = require('../config')
 const Searcher = require('./searcher')
 
+const isMac = process.platform === 'darwin'
+
 const win = remote.getCurrentWindow()
 let webview // eslint-disable-line prefer-const
 
@@ -100,7 +102,39 @@ function createWebView() {
     // Add context menus
     contextMenu({
       window: webview,
-      showInspectElement: true
+      showInspectElement: true,
+      append(props, win) {
+          const hasText = props.selectionText.trim().length > 0
+          return [
+            {
+              id: 'showDefinition',
+              label: 'Show definition',
+              enabled: hasText && isMac,
+              visible: hasText && isMac,
+              click() {
+                win.showDefinitionForSelection()
+              }
+            },
+            {
+              id: 'searchGoogle',
+              label: 'Search in Google',
+              enabled: hasText,
+              visible: hasText,
+              click() {
+                shell.openExternal(`https://www.google.com/search?q=${props.selectionText}`)
+              }
+            },
+            {
+              id: 'searchDuck',
+              label: 'Search in DuckDuckGo',
+              enabled: hasText,
+              visible: hasText,
+              click() {
+                shell.openExternal(`https://duckduckgo.com/?q=${props.selectionText}`)
+              }
+            }
+          ]
+        }
     })
   })
 
