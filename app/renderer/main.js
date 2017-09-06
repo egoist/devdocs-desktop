@@ -104,37 +104,41 @@ function createWebView() {
       window: webview,
       showInspectElement: true,
       append(props, win) {
-          const hasText = props.selectionText.trim().length > 0
-          return [
-            {
-              id: 'showDefinition',
-              label: 'Show definition',
-              enabled: hasText && isMac,
-              visible: hasText && isMac,
-              click() {
-                win.showDefinitionForSelection()
-              }
-            },
-            {
-              id: 'searchGoogle',
-              label: 'Search in Google',
-              enabled: hasText,
-              visible: hasText,
-              click() {
-                shell.openExternal(`https://www.google.com/search?q=${props.selectionText}`)
-              }
-            },
-            {
-              id: 'searchDuck',
-              label: 'Search in DuckDuckGo',
-              enabled: hasText,
-              visible: hasText,
-              click() {
-                shell.openExternal(`https://duckduckgo.com/?q=${props.selectionText}`)
-              }
+        const hasText = props.selectionText.trim().length > 0
+        return [
+          {
+            id: 'showDefinition',
+            label: 'Show definition',
+            enabled: hasText && isMac,
+            visible: hasText && isMac,
+            click() {
+              win.showDefinitionForSelection()
             }
-          ]
-        }
+          },
+          {
+            id: 'searchGoogle',
+            label: 'Search in Google',
+            enabled: hasText,
+            visible: hasText,
+            click() {
+              shell.openExternal(
+                `https://www.google.com/search?q=${props.selectionText}`
+              )
+            }
+          },
+          {
+            id: 'searchDuck',
+            label: 'Search in DuckDuckGo',
+            enabled: hasText,
+            visible: hasText,
+            click() {
+              shell.openExternal(
+                `https://duckduckgo.com/?q=${props.selectionText}`
+              )
+            }
+          }
+        ]
+      }
     })
   })
 
