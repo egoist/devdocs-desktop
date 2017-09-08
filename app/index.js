@@ -53,6 +53,8 @@ function createMainWindow() {
     titleBarStyle: 'hidden'
   })
 
+  win.setAlwaysOnTop(true, 'floating', 1)
+
   if (process.platform === 'darwin') {
     win.setSheetOffset(24)
   }
