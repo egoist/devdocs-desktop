@@ -8,8 +8,6 @@ const { configDir } = require('../utils')
 const config = require('../config')
 const Searcher = require('./searcher')
 
-const isMac = process.platform === 'darwin'
-
 const win = remote.getCurrentWindow()
 let webview // eslint-disable-line prefer-const
 
@@ -103,7 +101,7 @@ function createWebView() {
     contextMenu({
       window: webview,
       showInspectElement: true,
-      append(props, win) {
+      append(props) {
         const hasText = props.selectionText.trim().length > 0
         return [
           {
