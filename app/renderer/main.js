@@ -107,15 +107,6 @@ function createWebView() {
         const hasText = props.selectionText.trim().length > 0
         return [
           {
-            id: 'showDefinition',
-            label: 'Show definition',
-            enabled: hasText && isMac,
-            visible: hasText && isMac,
-            click() {
-              win.showDefinitionForSelection()
-            }
-          },
-          {
             id: 'searchGoogle',
             label: 'Search in Google',
             enabled: hasText,
