@@ -22,7 +22,7 @@ When closing the window, the app will continue running in the background, in the
 
 ### Global shortcut
 
-Use `Ctrl+Shift+D` (or `Command+Shift+D` on macOS) to toggle the app.
+Use <kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS) to toggle the app.
 
 ## Download
 
