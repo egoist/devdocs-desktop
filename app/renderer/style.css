@@ -34,7 +34,6 @@ body {
   justify-content: center;
   font-size: 12px;
   border-bottom: 1px solid #e2e2e2;
-  background: white;
   -webkit-app-region: drag;
   user-select: none;
 }
