@@ -49,7 +49,9 @@ function createMenu(opts) {
           }
         },
         {
-          label: `${toggleAppAcceleratorRegistered ? 'Disable' : 'Enable'} Global Shortcut`,
+          label: `${toggleAppAcceleratorRegistered
+            ? 'Disable'
+            : 'Enable'} Global Shortcut`,
           click() {
             toggleGlobalShortcut({
               name: 'toggleApp',
@@ -182,9 +184,8 @@ function createMenu(opts) {
         },
         {
           label: 'Toggle Developer Tools',
-          accelerator: process.platform === 'darwin'
-            ? 'Alt+Command+I'
-            : 'Ctrl+Shift+I',
+          accelerator:
+            process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
           click(item, focusedWindow) {
             if (focusedWindow) focusedWindow.webContents.toggleDevTools()
           }
