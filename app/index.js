@@ -50,7 +50,8 @@ function createMainWindow() {
     minWidth: 600,
     minHeight: 400,
     show: false,
-    titleBarStyle: 'hidden'
+    titleBarStyle: 'hidden',
+    backgroundColor: '#ffffff'
   })
 
   if (process.platform === 'darwin') {
@@ -98,8 +99,7 @@ app.on('ready', () => {
   mainWindow = createMainWindow()
   tray.create(mainWindow)
 
-  const page = mainWindow.webContents
-  page.on('dom-ready', () => {
+  mainWindow.once('ready-to-show', () => {
     mainWindow.show()
     updater.init()
   })
