@@ -32,6 +32,7 @@ if (isAlreadyRunning) {
 
 function toggleWindow() {
   if (mainWindow.isVisible()) {
+    mainWindow.minimize()
     mainWindow.hide()
   } else {
     mainWindow.show()
