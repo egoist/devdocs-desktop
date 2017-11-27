@@ -127,3 +127,15 @@ app.on('before-quit', () => {
     config.set('lastWindowState', mainWindow.getBounds())
   }
 })
+
+app.setAsDefaultProtocolClient('devdocs')
+
+app.on('open-url', (e, url) => {
+  const page = mainWindow.webContents
+  const route = url.replace('devdocs://', '')
+  const SEACH_RE = /^search\/(.+)$/
+  console.log(route, SEACH_RE.test(route))
+  if (SEACH_RE.test(route)) {
+    page.send('open-doc', SEACH_RE.exec(route)[1])
+  }
+})
