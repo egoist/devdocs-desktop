@@ -15,6 +15,7 @@ app.setAppUserModelId('com.egoistian.devdocs')
 
 let mainWindow
 let isQuitting = false
+let urlToOpen
 
 const isAlreadyRunning = app.makeSingleInstance(() => {
   if (mainWindow) {
@@ -102,6 +103,9 @@ app.on('ready', () => {
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()
     updater.init()
+    if (urlToOpen) {
+      mainWindow.webContents.send('link', urlToOpen)
+    }
   })
 })
 
@@ -130,12 +134,12 @@ app.on('before-quit', () => {
 
 app.setAsDefaultProtocolClient('devdocs')
 
-app.on('open-url', (e, url) => {
-  const page = mainWindow.webContents
-  const route = url.replace('devdocs://', '')
-  const SEACH_RE = /^search\/(.+)$/
-  console.log(route, SEACH_RE.test(route))
-  if (SEACH_RE.test(route)) {
-    page.send('open-doc', SEACH_RE.exec(route)[1])
-  }
+app.on('will-finish-launching', () => {
+  app.on('open-url', (e, url) => {
+    if (mainWindow) {
+      mainWindow.webContents.send('link', url)
+    } else {
+      urlToOpen = url
+    }
+  })
 })
