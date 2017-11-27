@@ -72,8 +72,13 @@ function createWebView() {
     webview.focus()
   })
 
-  ipc.on('open-doc', (e, keyword) => {
-    webview.src = `https://devdocs.io/#q=${keyword}`
+  ipc.on('link', (e, url) => {
+    const route = url.replace('devdocs://', '')
+    const SEACH_RE = /^search\/(.+)$/
+    if (SEACH_RE.test(route)) {
+      const keyword = SEACH_RE.exec(route)[1]
+      webview.src = `https://devdocs.io/#q=${keyword}`
+    }
   })
 
   webview.addEventListener('ipc-message', e => {
