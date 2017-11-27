@@ -72,6 +72,10 @@ function createWebView() {
     webview.focus()
   })
 
+  ipc.on('open-doc', (e, keyword) => {
+    webview.src = `https://devdocs.io/#q=${keyword}`
+  })
+
   webview.addEventListener('ipc-message', e => {
     if (e.channel === 'switch-mode') {
       const [mode] = e.args
