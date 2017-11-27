@@ -49,7 +49,9 @@ function createMenu(opts) {
           }
         },
         {
-          label: `${toggleAppAcceleratorRegistered ? 'Disable' : 'Enable'} Global Shortcut`,
+          label: `${
+            toggleAppAcceleratorRegistered ? 'Disable' : 'Enable'
+          } Global Shortcut`,
           click() {
             toggleGlobalShortcut({
               name: 'toggleApp',
@@ -82,7 +84,9 @@ function createMenu(opts) {
           {
             type: 'info',
             message: 'New updates!',
-            detail: `A new release (${latest.tag_name}) is available, view more details?`,
+            detail: `A new release (${
+              latest.tag_name
+            }) is available, view more details?`,
             buttons: ['OK', 'Cancel'],
             defaultId: 0
           },
@@ -182,9 +186,8 @@ function createMenu(opts) {
         },
         {
           label: 'Toggle Developer Tools',
-          accelerator: process.platform === 'darwin'
-            ? 'Alt+Command+I'
-            : 'Ctrl+Shift+I',
+          accelerator:
+            process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
           click(item, focusedWindow) {
             if (focusedWindow) focusedWindow.webContents.toggleDevTools()
           }
