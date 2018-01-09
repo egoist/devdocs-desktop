@@ -33,18 +33,16 @@ You can manually download the latest release [here](https://github.com/egoist/de
 It's really easy to develop this app, no build tools like Webpack needed here, checkout [./app](/app) to get more:
 
 ```bash
-$ npm install
+npm install
 
-$ npm run app
+npm run app
 # edit files, save, refresh and it's done.
 ```
 
 ## Distribute
 
 ```bash
-$ npm run dist:mac
-$ npm run dist:linux
-$ npm run dist:win
+npm run dist
 ```
 
 ## License
