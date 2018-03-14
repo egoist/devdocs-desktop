@@ -14,7 +14,7 @@
     "postinstall": "electron-builder install-app-deps",
     "test": "npm run lint",
     "lint": "xo",
-    "app": "electron app/index.js",
+    "app": "DEBUG=devdocs-desktop:* electron app/index.js",
     "pack": "build --dir",
     "dist": "build",
     "release": "build"
@@ -47,7 +47,8 @@
       "browser"
     ],
     "rules": {
-      "guard-for-in": 0
+      "guard-for-in": 0,
+      "max-params": ["error", 5]
     }
   },
   "build": {
