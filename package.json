@@ -14,7 +14,7 @@
     "postinstall": "electron-builder install-app-deps",
     "test": "npm run lint",
     "lint": "xo",
-    "app": "electron app/index.js",
+    "app": "DEBUG=devdocs-desktop:* electron app/index.js",
     "pack": "build --dir",
     "dist": "build",
     "release": "build"
@@ -34,6 +34,7 @@
   "homepage": "https://github.com/egoist/devdocs-desktop#readme",
   "devDependencies": {
     "devtron": "^1.4.0",
+    "debug": "^3.1.0",
     "electron": "^1.7.9",
     "electron-builder": "^19.37.2",
     "electron-devtools-installer": "^2.2.1",
