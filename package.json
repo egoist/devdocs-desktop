@@ -14,7 +14,7 @@
     "postinstall": "electron-builder install-app-deps",
     "test": "npm run lint",
     "lint": "xo",
-    "app": "electron app/index.js",
+    "app": "DEBUG=devdocs-desktop:* electron app/index.js",
     "pack": "build --dir",
     "dist": "build",
     "release": "build"
@@ -77,5 +77,8 @@
         "tar.xz"
       ]
     }
+  },
+  "dependencies": {
+    "debug": "^3.1.0"
   }
 }

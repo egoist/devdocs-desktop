@@ -1,3 +1,4 @@
+const debug = require('debug')('devdocs-desktop:index');
 const path = require('path')
 const { app, BrowserWindow, Menu } = require('electron')
 const createMenu = require('./menu')
@@ -5,6 +6,7 @@ const config = require('./config')
 const tray = require('./tray')
 const updater = require('./updater')
 const { toggleGlobalShortcut } = require('./utils')
+const login = require('./login');
 
 require('electron-debug')()
 require('electron-context-menu')({
@@ -108,6 +110,12 @@ app.on('ready', () => {
     }
   })
 })
+
+app.on('login', (event, webContents, request, authInfo, cb) => {
+  debug('app.on(login)');
+  event.preventDefault();
+  login(cb);
+});
 
 app.on('activate', () => {
   mainWindow.show()
