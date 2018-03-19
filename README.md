@@ -48,5 +48,3 @@ npm run dist
 ## License
 
 MIT &copy; [EGOIST](https://github.com/egoist)
-
-
