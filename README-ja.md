@@ -33,7 +33,7 @@ Windowsでは、トレイのアイコンをクリックすると、ウィンド�
 ### グローバルショートカット
 
 <!--Use <kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS) to toggle the app.-->
-<kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS)を押すと、アプリを切り替えします。
+<kbd>Ctrl+Shift+D</kbd> (macOSでは<kbd>Command+Shift+D</kbd>)を押すと、アプリを切り替えします。
 
 ## ダウンロード
 
