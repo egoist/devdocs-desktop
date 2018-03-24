@@ -1,14 +1,15 @@
 # DevDocs Desktop
 
-[![version](https://img.shields.io/github/release/egoist/devdocs-desktop.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases) [![downloads](https://img.shields.io/github/downloads/egoist/devdocs-desktop/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases) [![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-desktop/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases/latest) [![travis](https://img.shields.io/travis/egoist/devdocs-desktop.svg?style=flat-square)](https://travis-ci.org/egoist/devdocs-desktop) [![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-desktop.svg?style=flat-square)](https://ci.appveyor.com/project/egoist/devdocs-desktop) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat-square)](https://chat.egoist.moe)
+[![version](https://img.shields.io/github/release/egoist/devdocs-desktop.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases)
+[![downloads](https://img.shields.io/github/downloads/egoist/devdocs-desktop/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases)
+[![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-desktop/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases/latest)
+[![travis](https://img.shields.io/travis/egoist/devdocs-desktop.svg?style=flat-square)](https://travis-ci.org/egoist/devdocs-desktop)
+[![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-desktop.svg?style=flat-square)](https://ci.appveyor.com/project/egoist/devdocs-desktop) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat-square)](https://chat.egoist.moe)
 
 <!--[DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.-->
 [DevDocs.io](https://devdocs.io/)は多数のAPIドキュメントを素早く便利にまとめて、探すことのできるインターフェイスです。このデスクトップアプリは非公式です。
 
-
 ![devdocs-preview](https://user-images.githubusercontent.com/8784712/27121730-11676ba8-511b-11e7-8c01-00444ee8501a.png)
-
-
 
 ## 特徴
 
@@ -22,6 +23,7 @@ Linuxでは、トレイでアイコンを右クリックすると、ウィンド
 Windowsでは、トレイのアイコンをクリックすると、ウィンドウを切り替えます。
 
 <!--### Build-in shortcuts-->
+
 ### ショートカットキー
 
 <!--`devdocs` the website itself has great built-in shortcuts support, just check the `help` page in the app.-->
@@ -41,6 +43,7 @@ Windowsでは、トレイのアイコンをクリックすると、ウィンド�
 [こちら](https://github.com/egoist/devdocs-desktop/releases)
 
 ## 開発
+
 このアプリの開発はとても簡単です。Webpackのようなビルドツールは必要ありません。
 [./app](/app) をチェックしてください
 

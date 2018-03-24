@@ -1,7 +1,12 @@
 # DevDocs Desktop
+
 日本語説明ページは[こちら](https://github.com/egoist/devdocs-desktop/blob/master/README-ja.md)
 
-[![version](https://img.shields.io/github/release/egoist/devdocs-desktop.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases) [![downloads](https://img.shields.io/github/downloads/egoist/devdocs-desktop/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases) [![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-desktop/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases/latest) [![travis](https://img.shields.io/travis/egoist/devdocs-desktop.svg?style=flat-square)](https://travis-ci.org/egoist/devdocs-desktop) [![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-desktop.svg?style=flat-square)](https://ci.appveyor.com/project/egoist/devdocs-desktop) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat-square)](https://chat.egoist.moe)
+[![version](https://img.shields.io/github/release/egoist/devdocs-desktop.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases)
+[![downloads](https://img.shields.io/github/downloads/egoist/devdocs-desktop/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases)
+[![downloads latest](https://img.shields.io/github/downloads/egoist/devdocs-desktop/latest/total.svg?style=flat-square)](https://github.com/egoist/devdocs-desktop/releases/latest)
+[![travis](https://img.shields.io/travis/egoist/devdocs-desktop.svg?style=flat-square)](https://travis-ci.org/egoist/devdocs-desktop)
+[![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-desktop.svg?style=flat-square)](https://ci.appveyor.com/project/egoist/devdocs-desktop) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat-square)](https://chat.egoist.moe)
 
 [DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.
 
