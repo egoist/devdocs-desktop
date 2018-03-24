@@ -16,7 +16,6 @@
 ### バックグラウンドで動作
 
 <!--When closing the window, the app will continue running in the background, in the dock on macOS and the tray on Linux/Windows. Right-click the dock/tray icon and choose Quit to completely quit the app. On macOS, click the dock icon to show the window. On Linux, right-click the tray icon and choose Toggle to toggle the window. On Windows, click the tray icon to toggle the window.-->
-
 ウィンドウを閉じたとき、アプリはmacOSのdockやLinux/Windowsのトレイにバックグラウンドで動作し続けます。dockやトレイでアイコンを右クリックすると、アプリの終了を選択できます。
 macOSではdockでアイコンをクリックすると、ウィンドウが表示されます。
 Linuxでは、トレイでアイコンを右クリックすると、ウィンドウの切り替えを選択できます。
