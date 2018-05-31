@@ -72,6 +72,10 @@
     "linux": {
       "synopsis": "DevDocs desktop app",
       "category": "Development",
+      "desktop": {
+        "StartupWMClass": "devdocs",
+        "MimeType": "x-scheme-handler/devdocs;"
+      },
       "target": [
         "AppImage",
         "deb",
