@@ -8,7 +8,7 @@ const {
 const axios = require('axios')
 const semverCompare = require('semver-compare')
 const { configDir, toggleGlobalShortcut } = require('./utils')
-const {AutoLauncher} = require('./autolaunch')
+const { AutoLauncher } = require('./autolaunch')
 const config = require('./config')
 const pkg = require('./package')
 
@@ -108,14 +108,13 @@ function createMenu(opts) {
     }
   }
 
-  let autoStart = {
+  const autoStart = {
     id: 'optautoStart',
     label: 'Run at startup',
     type: 'checkbox',
     async click(item, focusedWindow) {
       if (!focusedWindow) return
-      AutoLauncher.isEnabled()
-      .then(isEnabled => {
+      AutoLauncher.isEnabled().then(isEnabled => {
         if (isEnabled) {
           AutoLauncher.disable()
         } else {
@@ -123,7 +122,6 @@ function createMenu(opts) {
         }
         item.checked = !isEnabled
       })
-
     }
   }
 
@@ -307,7 +305,12 @@ function createMenu(opts) {
   } else {
     template.push({
       label: 'Preferences',
-      submenu: [...preferences[0].submenu, preferences[1], checkForUpdates, autoStart]
+      submenu: [
+        ...preferences[0].submenu,
+        preferences[1],
+        checkForUpdates,
+        autoStart
+      ]
     })
   }
 
