@@ -8,7 +8,7 @@
 [![travis](https://img.shields.io/travis/egoist/devdocs-desktop.svg?style=flat-square)](https://travis-ci.org/egoist/devdocs-desktop)
 [![appveyor](https://img.shields.io/appveyor/ci/egoist/devdocs-desktop.svg?style=flat-square)](https://ci.appveyor.com/project/egoist/devdocs-desktop) [![donate](https://img.shields.io/badge/$-donate-ff69b4.svg?maxAge=2592000&style=flat-square)](https://github.com/egoist/donate) [![chat](https://img.shields.io/badge/chat-on%20discord-7289DA.svg?style=flat-square)](https://chat.egoist.moe)
 
-[DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unoffcial desktop app for it.
+[DevDocs.io](https://devdocs.io/) combines multiple API documentations in a fast, organized, and searchable interface. This is an unofficial desktop app for it.
 
 ![devdocs-preview](https://user-images.githubusercontent.com/8784712/27121730-11676ba8-511b-11e7-8c01-00444ee8501a.png)
 
