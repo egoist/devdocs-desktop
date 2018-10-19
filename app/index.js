@@ -7,7 +7,7 @@ const tray = require('./tray')
 const updater = require('./updater')
 const { toggleGlobalShortcut } = require('./utils')
 const login = require('./login')
-
+const { AutoLauncher } = require('./autolaunch')
 require('electron-debug')()
 require('electron-context-menu')({
   showInspectElement: true
@@ -105,6 +105,11 @@ app.on('ready', () => {
       toggleWindow
     })
   )
+  AutoLauncher.isEnabled().then(isEnabled => {
+    Menu.getApplicationMenu().getMenuItemById(
+      'optautoStart'
+    ).checked = isEnabled
+  })
   mainWindow = createMainWindow()
   tray.create(mainWindow)
 

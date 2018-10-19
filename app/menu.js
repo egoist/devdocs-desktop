@@ -8,6 +8,7 @@ const {
 const axios = require('axios')
 const semverCompare = require('semver-compare')
 const { configDir, toggleGlobalShortcut } = require('./utils')
+const { AutoLauncher } = require('./autolaunch')
 const config = require('./config')
 const pkg = require('./package')
 
@@ -104,6 +105,23 @@ function createMenu(opts) {
           detail: `v${pkg.version} is already the latest version.`
         })
       }
+    }
+  }
+
+  const autoStart = {
+    id: 'optautoStart',
+    label: 'Run at startup',
+    type: 'checkbox',
+    async click(item, focusedWindow) {
+      if (!focusedWindow) return
+      AutoLauncher.isEnabled().then(isEnabled => {
+        if (isEnabled) {
+          AutoLauncher.disable()
+        } else {
+          AutoLauncher.enable()
+        }
+        item.checked = !isEnabled
+      })
     }
   }
 
@@ -221,7 +239,7 @@ function createMenu(opts) {
         ...preferences,
         {
           role: 'services',
-          submenu: []
+          submenu: [autoStart]
         },
         {
           type: 'separator'
@@ -287,7 +305,12 @@ function createMenu(opts) {
   } else {
     template.push({
       label: 'Preferences',
-      submenu: [...preferences[0].submenu, preferences[1], checkForUpdates]
+      submenu: [
+        ...preferences[0].submenu,
+        preferences[1],
+        checkForUpdates,
+        autoStart
+      ]
     })
   }
 
