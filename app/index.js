@@ -63,6 +63,13 @@ function createMainWindow() {
 
   const url = `file://${path.join(__dirname, 'renderer', 'index.html')}`
 
+  /*/
+  / /Hide menu bar: default
+  / /Show menu bar: press 'alt'
+  /*/
+  win.setAutoHideMenuBar(true)
+  win.setMenuBarVisibility(false)
+  
   win.loadURL(url)
 
   win.on('close', e => {
