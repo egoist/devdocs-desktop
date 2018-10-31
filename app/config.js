@@ -6,6 +6,7 @@ module.exports = new Config({
       width: 800,
       height: 600
     },
+    lastURL: 'https://devdocs.io',
     shortcut: {
       toggleApp: null
     },

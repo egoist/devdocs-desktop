@@ -41,7 +41,7 @@ function createWebView() {
   // Create webview
   const webview = document.createElement('webview')
   webview.className = 'webview'
-  webview.src = 'https://devdocs.io'
+  webview.src = config.get('lastURL')
   webview.preload = `file://${path.join(__dirname, 'preload.js')}`
   document.body.appendChild(webview)
 
@@ -145,6 +145,7 @@ function createWebView() {
     const title = webview.getTitle()
     win.setTitle(title)
     document.getElementById('title').textContent = title
+    config.set('lastURL', webview.getURL())
   })
 
   webview.addEventListener('new-window', e => {
