@@ -77,6 +77,16 @@ function createMainWindow() {
     }
   })
 
+  win.on('app-command', (e, cmd) => {
+    if (cmd === 'browser-backward') {
+      mainWindow.webContents.send('history-back')
+    }
+
+    if (cmd === 'browser-forward') {
+      mainWindow.webContents.send('history-forward')
+    }
+  })
+
   return win
 }
 
