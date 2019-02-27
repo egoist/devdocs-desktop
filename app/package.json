@@ -1,7 +1,7 @@
 {
   "name": "DevDocs",
   "productName": "DevDocs",
-  "version": "0.6.9",
+  "version": "0.7.0",
   "description": "Desktop client for devdocs.io",
   "author": {
     "name": "EGOIST",
@@ -35,7 +35,7 @@
     "electron-is-dev": "^0.1.2",
     "electron-log": "^2.2.6",
     "electron-store": "^1.1.0",
-    "electron-updater": "^2.16.1",
+    "electron-updater": "^4.0.6",
     "mkdirp": "^0.5.1",
     "semver-compare": "^1.0.0"
   }
