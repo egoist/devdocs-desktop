@@ -45,7 +45,7 @@ npm run app
 # edit files, save, refresh and it's done.
 ```
 
-## Distribute
+## Distribute (i.e. build and compile an appImage, ...)
 
 ```bash
 npm run dist
