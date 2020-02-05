@@ -14,12 +14,14 @@ require('electron-context-menu')({
 })
 
 app.setAppUserModelId('com.egoistian.devdocs')
+app.allowRendererProcessReuse = true
 
 let mainWindow
 let isQuitting = false
 let urlToOpen
 
-const isAlreadyRunning = app.makeSingleInstance(() => {
+const isAlreadyRunning = !app.requestSingleInstanceLock()
+app.on('second-instance', () => {
   if (mainWindow) {
     if (mainWindow.isMinimized()) {
       mainWindow.restore()
@@ -45,16 +47,20 @@ function createMainWindow() {
   const lastWindowState = config.get('lastWindowState')
 
   const win = new BrowserWindow({
-    title: app.getName(),
+    title: app.name,
     x: lastWindowState.x,
     y: lastWindowState.y,
     width: lastWindowState.width,
     height: lastWindowState.height,
     minWidth: 600,
     minHeight: 400,
-    show: false,
+    show: true,
     titleBarStyle: 'hidden',
-    backgroundColor: '#ffffff'
+    backgroundColor: '#ffffff',
+    webPreferences: {
+      nodeIntegration: true,
+      webviewTag: true
+    }
   })
 
   if (process.platform === 'darwin') {

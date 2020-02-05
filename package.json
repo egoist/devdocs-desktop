@@ -15,9 +15,9 @@
     "test": "npm run lint",
     "lint": "xo",
     "app": "DEBUG=devdocs-desktop:* electron app/index.js",
-    "pack": "build --dir",
-    "dist": "build",
-    "release": "build"
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "release": "electron-builder"
   },
   "repository": {
     "type": "git",
@@ -34,12 +34,12 @@
   "homepage": "https://github.com/egoist/devdocs-desktop#readme",
   "devDependencies": {
     "devtron": "^1.4.0",
-    "electron": "^1.7.9",
-    "electron-builder": "^19.37.2",
+    "electron": "^8.0.0",
+    "electron-builder": "^22.3.2",
     "electron-devtools-installer": "^2.2.1",
     "eslint-config-rem": "^3.2.0",
     "minimist": "^1.2.0",
-    "xo": "^0.18.2"
+    "xo": "^0.25.3"
   },
   "xo": {
     "extends": "rem/prettier",
@@ -48,7 +48,10 @@
     ],
     "rules": {
       "guard-for-in": 0,
-      "max-params": ["error", 5]
+      "max-params": [
+        "error",
+        5
+      ]
     }
   },
   "build": {

@@ -5,12 +5,13 @@
 
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./search.css">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+  <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
 </head>
 
 <body>
-  <script>
-    require('./main')
-  </script>
+  <script src="./main.js"></script>
 </body>
 
 </html>

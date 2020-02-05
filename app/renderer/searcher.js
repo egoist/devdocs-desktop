@@ -50,15 +50,15 @@ module.exports = class Searcher extends EventEmitter {
       </button>
     </div>
     `
-    document.body.appendChild($wrapper)
+    document.body.append($wrapper)
     this.$searcher = $wrapper.querySelector('.searcher')
     this.$progress = this.$searcher.querySelector('.searcher-progress')
     this.$input = this.$searcher.querySelector('.searcher-input')
     this.$input.addEventListener('keydown', e => {
-      if (e.which === 13) {
+      if (e.key === 'Enter') {
         // Enter
         this.findNext(e.target.value)
-      } else if (e.which === 27) {
+      } else if (e.key === 'Escape') {
         // Esc
         this.close()
       }
@@ -89,6 +89,7 @@ module.exports = class Searcher extends EventEmitter {
     if (value) {
       this.target.findInPage(value, opts)
     }
+
     return this
   }
 
@@ -104,6 +105,7 @@ module.exports = class Searcher extends EventEmitter {
         )
       )
     }
+
     return this
   }
 

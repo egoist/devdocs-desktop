@@ -18,6 +18,7 @@ function ensureCustomFiles() {
   if (!fs.existsSync(css)) {
     fs.writeFileSync(css, '', 'utf8')
   }
+
   if (!fs.existsSync(js)) {
     fs.writeFileSync(js, '', 'utf8')
   }
@@ -34,7 +35,7 @@ function createHeader() {
     webview.focus()
   })
 
-  document.body.appendChild(header)
+  document.body.append(header)
 }
 
 function createWebView() {
@@ -43,7 +44,7 @@ function createWebView() {
   webview.className = 'webview'
   webview.src = 'https://devdocs.io'
   webview.preload = `file://${path.join(__dirname, 'preload.js')}`
-  document.body.appendChild(webview)
+  document.body.append(webview)
 
   // Initialize in-page searcher
   const searcher = new Searcher(webview)
@@ -111,7 +112,9 @@ function createWebView() {
       window: webview,
       showInspectElement: true,
       append(props) {
-        const hasText = props.selectionText.trim().length > 0
+        const hasText =
+          typeof props.selectionText !== 'undefined' &&
+          props.selectionText.trim().length > 0
         return [
           {
             id: 'searchGoogle',
@@ -144,7 +147,7 @@ function createWebView() {
   webview.addEventListener('did-stop-loading', () => {
     const title = webview.getTitle()
     win.setTitle(title)
-    document.getElementById('title').textContent = title
+    document.querySelector('#title').textContent = title
   })
 
   webview.addEventListener('new-window', e => {

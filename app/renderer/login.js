@@ -1,9 +1,9 @@
 const { ipcRenderer } = require('electron')
 
-document.getElementById('login-form').addEventListener('submit', event => {
+document.querySelector('#login-form').addEventListener('submit', event => {
   event.preventDefault()
   ipcRenderer.send('login-message', [
-    document.getElementById('username-input').value,
-    document.getElementById('password-input').value
+    document.querySelector('#username-input').value,
+    document.querySelector('#password-input').value
   ])
 })

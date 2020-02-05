@@ -34,7 +34,7 @@ exports.create = win => {
   ])
 
   tray = new Tray(iconPath)
-  tray.setToolTip(`${app.getName()}`)
+  tray.setToolTip(`${app.name}`)
   tray.setContextMenu(contextMenu)
   tray.on('click', toggleWin)
 }
