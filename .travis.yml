@@ -1,6 +1,6 @@
-osx_image: xcode7.3
+osx_image: xcode11.3
 
-dist: trusty
+dist: xenial
 sudo: required
 
 language: c
@@ -35,7 +35,7 @@ before_install:
   - export PATH="$HOME/.yarn/bin:$PATH"
 
 install:
-- nvm install 7
+- nvm install 12
 - yarn install
 
 script:

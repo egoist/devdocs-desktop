@@ -12,7 +12,7 @@
   "main": "app/index.js",
   "scripts": {
     "postinstall": "electron-builder install-app-deps",
-    "test": "npm run lint",
+    "test": "xo",
     "lint": "xo",
     "app": "DEBUG=devdocs-desktop:* electron app/index.js",
     "pack": "electron-builder --dir",
