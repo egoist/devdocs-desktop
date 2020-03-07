@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const { app, BrowserWindow, Menu } = require('electron')
 const debug = require('debug')('devdocs-desktop:index')
 const createMenu = require('./menu')
@@ -13,25 +14,26 @@ require('electron-context-menu')({
   showInspectElement: true
 })
 
-app.setAppUserModelId('com.egoistian.devdocs')
+app.setAppUserModelId('sh.egoist.devdocs')
 
 let mainWindow
 let isQuitting = false
 let urlToOpen
 
-const isAlreadyRunning = app.makeSingleInstance(() => {
-  if (mainWindow) {
-    if (mainWindow.isMinimized()) {
-      mainWindow.restore()
-    }
-
-    mainWindow.show()
-  }
-})
-
-if (isAlreadyRunning) {
-  app.quit()
+if (!app.requestSingleInstanceLock()) {
+	app.quit();
 }
+
+app.on('second-instance', () => {
+	if (mainWindow) {
+		if (mainWindow.isMinimized()) {
+			mainWindow.restore();
+		}
+
+		mainWindow.show();
+	}
+});
+
 
 function toggleWindow() {
   if (mainWindow.isVisible()) {
@@ -45,7 +47,7 @@ function createMainWindow() {
   const lastWindowState = config.get('lastWindowState')
 
   const win = new BrowserWindow({
-    title: app.getName(),
+    title: app.name,
     x: lastWindowState.x,
     y: lastWindowState.y,
     width: lastWindowState.width,
@@ -53,17 +55,30 @@ function createMainWindow() {
     minWidth: 600,
     minHeight: 400,
     show: false,
-    titleBarStyle: 'hidden',
-    backgroundColor: '#ffffff'
+    titleBarStyle: process.platform === 'darwin' ? 'hidden' : 'default',
+    trafficLightPosition: {
+     x: 10,
+     y: 10
+    },
+    webPreferences: {
+      nodeIntegration: true,
+      webviewTag: true
+    }
   })
 
   if (process.platform === 'darwin') {
     win.setSheetOffset(24)
   }
 
-  const url = `file://${path.join(__dirname, 'renderer', 'index.html')}`
+  const url = `file://${path.join(__dirname, 'renderer/index.html')}`
 
   win.loadURL(url)
+
+  win.webContents.on('dom-ready', () => {
+    const mainCSS = fs.readFileSync(path.join(__dirname, 'renderer/style.css'), 'utf8')
+    const searchCSS = fs.readFileSync(path.join(__dirname, 'renderer/search.css'))
+    win.webContents.insertCSS(mainCSS + searchCSS)
+  })
 
   win.on('close', e => {
     if (!isQuitting) {

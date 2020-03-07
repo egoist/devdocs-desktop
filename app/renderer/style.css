@@ -1,3 +1,15 @@
+:root {
+  --inputFocusBorder: #35b5f4 !important;
+  --headerBackground: #eee;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --headerColor: #999;
+    --headerBackground: #1c1c1c;
+  }
+}
+
 html, body {
   height: 100%;
 }
@@ -21,6 +33,8 @@ body {
 
 .webview {
   height: 100%;
+  width: 100%;
+  border: none;
 }
 
 .webview:focus {
@@ -29,11 +43,12 @@ body {
 
 .header {
   height: 24px;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
   font-size: 12px;
-  border-bottom: 1px solid #e2e2e2;
+  color: var(--headerColor);
+  background-color: var(--headerBackground);
   -webkit-app-region: drag;
   user-select: none;
 }
@@ -50,15 +65,4 @@ body {
 
 .is-darwin .webview {
   height: calc(100% - 24px);
-}
-
-.is-dark-mode {
-  background: #24282a;
-}
-
-.is-dark-mode .header {
-  background: #1c1c1c;
-  border-bottom: 1px solid #151515;
-  border-right: 1px solid #000;
-  color: #cbd0d0;
 }
