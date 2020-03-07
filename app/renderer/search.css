@@ -1,6 +1,6 @@
 .searcher {
   position: fixed;
-  top: var(--headerHeight);
+  top: var(--webHeaderHeight);
   right: 0;
   padding: 10px;
   background: var(--headerBackground);
@@ -13,7 +13,7 @@
 }
 
 .is-darwin .searcher {
-  top: 24px;
+  top: calc(24px + var(--webHeaderHeight));
 }
 
 .searcher-progress {
@@ -26,14 +26,15 @@
 }
 
 .searcher-action {
-  border: 1px solid var(--boxBorder);
-  background: var(--labelBackground);
+  border: 1px solid var(--searchActionBorder);
+  background: var(--contentBackgorund);
   outline: none;
   padding: 0 8px;
   cursor: pointer;
   font-size: .875rem;
   height: 30px;
   overflow: hidden;
+  color: var(--textColor);
 }
 
 .searcher-prev {
@@ -54,11 +55,11 @@
 }
 
 .searcher-action:hover {
-  background: var(--boxBorder);
+  background: var(--searchActionHoverBackground);
 }
 
 .searcher-input {
-  border: 1px solid var(--searchBorder);
+  border: 1px solid var(--searchInputBorder);
   border-radius: 3px;
   padding: 0 5px;
   outline: none;
@@ -67,6 +68,7 @@
   margin-right: 5px;
   width: 200px;
   background-color: var(--contentBackground);
+  color: var(--searchInputColor);
 }
 
 .searcher-input:focus {

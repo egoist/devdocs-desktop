@@ -1,12 +1,26 @@
 :root {
+  --textColor: #333;
   --inputFocusBorder: #35b5f4 !important;
   --headerBackground: #eee;
+  --webHeaderHeight: 3rem;
+  --searchBorder: #ccc;
+  --searchInputBorder: #ccc;
+  --searchActionBorder: #ccc;
+  --searchActionHoverBackground: #ccc;
+  --contentBackground: white;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
+    --textColor: #ccc;
     --headerColor: #999;
     --headerBackground: #1c1c1c;
+    --searchBorder: black;
+    --searchInputColor: white;
+    --searchInputBorder: black;
+    --contentBackground: #33373a;
+    --searchActionBorder: black;
+    --searchActionHoverBackground: #333;
   }
 }
 
@@ -25,6 +39,8 @@ body {
     "Helvetica Neue",
     Arial,
     sans-serif;
+  color: var(--textColor);
+  background-color: var(--contentBackground);
 }
 
 * {
