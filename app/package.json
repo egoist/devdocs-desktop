@@ -35,7 +35,7 @@
     "electron-is-dev": "^1.1.0",
     "electron-log": "^4.0.7",
     "electron-store": "^5.1.1",
-    "electron-updater": "^2.2.4",
+    "electron-updater": "^4.2.4",
     "mkdirp": "^1.0.3",
     "semver-compare": "^1.0.0"
   }

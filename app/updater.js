@@ -9,5 +9,5 @@ exports.init = () => {
 
   autoUpdater.logger = log
   autoUpdater.logger.transports.file.level = 'info'
-  autoUpdater.checkForUpdates()
+  autoUpdater.checkForUpdatesAndNotify()
 }

@@ -81,5 +81,6 @@
         "tar.xz"
       ]
     }
-  }
+  },
+  "dependencies": {}
 }
