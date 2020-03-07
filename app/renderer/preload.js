@@ -15,16 +15,16 @@ function switchMode(isDark) {
 }
 
 function setZoom(zoomFactor) {
-  const node = document.getElementById('zoomFactor')
+  const node = document.querySelector('#zoomFactor')
   node.textContent = `body {zoom: ${zoomFactor} !important}`
   config.set('zoomFactor', zoomFactor)
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const zoomFactor = config.get('zoomFactor') || 1.0
+  const zoomFactor = config.get('zoomFactor') || 1
   const style = document.createElement('style')
   style.id = 'zoomFactor'
-  document.body.appendChild(style)
+  document.body.append(style)
   setZoom(zoomFactor)
 })
 
@@ -45,5 +45,5 @@ ipc.on('zoom-out', () => {
 })
 
 ipc.on('zoom-reset', () => {
-  setZoom(1.0)
+  setZoom(1)
 })
