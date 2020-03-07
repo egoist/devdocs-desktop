@@ -12,11 +12,11 @@ init:
   - git config --global core.autocrlf input
 
 install:
-  - ps: Install-Product node 8 x64
-  - yarn install
+  - ps: Install-Product node 12 x64
+  - npm install
 
 build_script:
-  - yarn run test
-  - yarn run release
+  - npm test
+  - npm run release
 
 test: off
