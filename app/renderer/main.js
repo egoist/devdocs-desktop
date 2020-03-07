@@ -110,7 +110,8 @@ function createWebView() {
       window: webview,
       showInspectElement: true,
       append(props) {
-        const hasText = props.selectionText && props.selectionText.trim().length > 0
+        const hasText =
+          props.selectionText && props.selectionText.trim().length > 0
         return [
           {
             id: 'searchGoogle',
