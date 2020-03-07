@@ -42,7 +42,7 @@ function createWebView() {
   const webview = document.createElement('webview')
   webview.className = 'webview'
   webview.src = 'https://devdocs.io'
-  webview.preload = `file://${path.join(__dirname, 'preload.js')}`
+  webview.preload = `preload.js`
   document.body.appendChild(webview)
 
   // Initialize in-page searcher
