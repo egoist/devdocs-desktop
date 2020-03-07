@@ -84,9 +84,7 @@ function createMenu(opts) {
           {
             type: 'info',
             message: 'New updates!',
-            detail: `A new release (${
-              latest.tag_name
-            }) is available, view more details?`,
+            detail: `A new release (${latest.tag_name}) is available, view more details?`,
             buttons: ['OK', 'Cancel'],
             defaultId: 0
           },

@@ -1,5 +1,4 @@
 const path = require('path')
-const fs = require('fs')
 const { app, BrowserWindow, Menu } = require('electron')
 const debug = require('debug')('devdocs-desktop:index')
 const createMenu = require('./menu')
@@ -21,19 +20,18 @@ let isQuitting = false
 let urlToOpen
 
 if (!app.requestSingleInstanceLock()) {
-	app.quit();
+  app.quit()
 }
 
 app.on('second-instance', () => {
-	if (mainWindow) {
-		if (mainWindow.isMinimized()) {
-			mainWindow.restore();
-		}
+  if (mainWindow) {
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore()
+    }
 
-		mainWindow.show();
-	}
-});
-
+    mainWindow.show()
+  }
+})
 
 function toggleWindow() {
   if (mainWindow.isVisible()) {
@@ -57,8 +55,8 @@ function createMainWindow() {
     show: false,
     titleBarStyle: process.platform === 'darwin' ? 'hidden' : 'default',
     trafficLightPosition: {
-     x: 10,
-     y: 10
+      x: 10,
+      y: 10
     },
     webPreferences: {
       nodeIntegration: true,

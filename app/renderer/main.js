@@ -1,5 +1,4 @@
 const os = require('os')
-const path = require('path')
 const fs = require('fs')
 const { ipcRenderer: ipc, remote, shell } = require('electron')
 const mkdirp = require('mkdirp')
