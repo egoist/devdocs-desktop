@@ -34,9 +34,11 @@
   "homepage": "https://github.com/egoist/devdocs-desktop#readme",
   "devDependencies": {
     "devtron": "^1.4.0",
+    "dotenv": "^8.2.0",
     "electron": "^8.1.0",
     "electron-builder": "^22.4.0",
     "electron-devtools-installer": "^2.2.4",
+    "electron-notarize": "^0.2.1",
     "eslint-config-rem": "^4.0.0",
     "minimist": "^1.2.0",
     "xo": "^0.27.2"
@@ -60,8 +62,15 @@
     "productName": "DevDocs",
     "compression": "maximum",
     "asar": true,
+    "dmg": {
+      "sign": false
+    },
     "mac": {
-      "category": "public.app-category.developer-tools"
+      "category": "public.app-category.developer-tools",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist"
     },
     "win": {
       "target": [
