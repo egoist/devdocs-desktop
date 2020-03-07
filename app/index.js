@@ -70,9 +70,7 @@ function createMainWindow() {
     win.setSheetOffset(24)
   }
 
-  const url = `file://${path.join(__dirname, 'renderer/index.html')}`
-
-  win.loadURL(url)
+  win.loadFile(path.join(__dirname, 'renderer/index.html'))
 
   win.on('close', e => {
     if (!isQuitting) {
