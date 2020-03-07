@@ -51,7 +51,8 @@
       "max-params": [
         "error",
         5
-      ]
+      ],
+      "import/order": "off"
     }
   },
   "build": {
