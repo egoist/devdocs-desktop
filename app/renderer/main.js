@@ -26,7 +26,7 @@ function ensureCustomFiles() {
 function createHeader() {
   const header = document.createElement('header')
   header.className = 'header'
-  header.innerHTML = `<h1 id="title" class="app-title">Loading DevDocs...</h1>`
+  header.innerHTML = '<h1 id="title" class="app-title">Loading DevDocs...</h1>'
   header.addEventListener('dblclick', () => {
     win.maximize()
   })
@@ -42,7 +42,7 @@ function createWebView() {
   const webview = document.createElement('webview')
   webview.className = 'webview'
   webview.src = 'https://devdocs.io'
-  webview.preload = `preload.js`
+  webview.preload = 'preload.js'
   document.body.append(webview)
 
   // Initialize in-page searcher
@@ -86,9 +86,9 @@ function createWebView() {
       const [mode] = e.args
       config.set('mode', mode)
       if (mode === 'dark') {
-        document.body.classList.add(`is-dark-mode`)
+        document.body.classList.add('is-dark-mode')
       } else {
-        document.body.classList.remove(`is-dark-mode`)
+        document.body.classList.remove('is-dark-mode')
       }
     }
   })

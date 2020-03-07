@@ -5,11 +5,11 @@ const config = require('./config')
 
 const home = os.homedir()
 
-exports.configDir = function(...args) {
+exports.configDir = function (...args) {
   return path.join(home, '.devdocs', ...args)
 }
 
-exports.toggleGlobalShortcut = function({
+exports.toggleGlobalShortcut = function ({
   name,
   registered,
   accelerator,

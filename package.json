@@ -42,7 +42,7 @@
     "xo": "^0.27.2"
   },
   "xo": {
-    "extends": "rem/prettier",
+    "extends": "rem",
     "envs": [
       "browser"
     ],
