@@ -74,12 +74,6 @@ function createMainWindow() {
 
   win.loadURL(url)
 
-  win.webContents.on('dom-ready', () => {
-    const mainCSS = fs.readFileSync(path.join(__dirname, 'renderer/style.css'), 'utf8')
-    const searchCSS = fs.readFileSync(path.join(__dirname, 'renderer/search.css'))
-    win.webContents.insertCSS(mainCSS + searchCSS)
-  })
-
   win.on('close', e => {
     if (!isQuitting) {
       e.preventDefault()
