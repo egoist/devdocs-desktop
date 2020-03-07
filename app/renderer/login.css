@@ -1,0 +1,53 @@
+
+* {
+  font-family: Verdana, sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  -webkit-app-region: drag;
+  background: #fff;
+}
+.login-form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form > div {
+  text-align: center;
+}
+
+.login-form .input-div {
+  margin: 5px;
+}
+
+.login-form > div > input {
+  display: block;
+  height: 30px;
+  width: 250px;
+  margin: 10px;
+  padding: 10px;
+  text-align: center;
+  font-size: 16px;
+  -webkit-app-region: no-drag;
+}
+
+.login-form > div > button {
+  border: 0;
+  font-size: 15px;
+  font-weight: 100;
+  text-transform: uppercase;
+  height: 50px;
+  width: 274px;
+  background-color: #2196F3;
+  color: white;
+  -webkit-app-region: no-drag;
+}
+
+button:hover {
+  background-color: #0D47A1;
+}
