@@ -24,6 +24,13 @@ When closing the window, the app will continue running in the background, in the
 
 <img src="https://ooo.0o0.ooo/2017/06/14/59402442301b8.png" alt="help" width="300" />
 
+## Planned features
+
+Please consider [sponsoring me](http://github.com/sponsors/egoist) to accelerate development.
+
+- Menubar mode: switch beween desktop mode and menubar mode
+- Tabs support: allow to open documentation in a new tab
+
 ### Global shortcut
 
 Use <kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS) to toggle the app.
