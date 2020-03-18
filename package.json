@@ -40,7 +40,7 @@
     "electron-devtools-installer": "^2.2.4",
     "electron-notarize": "^0.2.1",
     "eslint-config-rem": "^4.0.0",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "xo": "^0.27.2"
   },
   "xo": {
