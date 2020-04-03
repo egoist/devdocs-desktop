@@ -35,7 +35,15 @@ Please consider [sponsoring me](http://github.com/sponsors/egoist) to accelerate
 
 Use <kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS) to toggle the app.
 
-## Download
+## Install
+
+### Using Homebrew
+
+```
+brew cask install devdocs
+```
+
+### Manual download
 
 You can manually download the latest release [here](https://github.com/egoist/devdocs-desktop/releases).
 
