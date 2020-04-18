@@ -75,7 +75,12 @@ function createMainWindow() {
       e.preventDefault()
 
       if (process.platform === 'darwin') {
-        app.hide()
+        if (config.get('floating')) {
+          // if app is floating, app.hide will not work
+          win.hide()
+        } else {
+          app.hide()
+        }
       } else {
         win.hide()
       }
@@ -108,10 +113,16 @@ app.on('ready', () => {
   Menu.setApplicationMenu(
     createMenu({
       toggleWindow
-    })
+    }, app)
   )
   mainWindow = createMainWindow()
-  tray.create(mainWindow)
+  if (config.get('floating') && process.platform === 'darwin') {
+    app.dock.hide()
+    mainWindow.setAlwaysOnTop(true, 'floating')
+    mainWindow.setVisibleOnAllWorkspaces(true)
+    mainWindow.setFullScreenable(false)
+  }
+  tray.create(mainWindow, app)
 
   mainWindow.once('ready-to-show', () => {
     mainWindow.show()

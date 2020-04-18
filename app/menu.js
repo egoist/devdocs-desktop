@@ -25,7 +25,7 @@ function updateMenu(opts) {
   Menu.setApplicationMenu(createMenu(opts))
 }
 
-function createMenu(opts) {
+function createMenu(opts, app) {
   const toggleAppAccelerator =
     config.get('shortcut.toggleApp') || 'CmdOrCtrl+Shift+D'
   const toggleAppAcceleratorRegistered = globalShortcut.isRegistered(
@@ -46,6 +46,14 @@ function createMenu(opts) {
           label: 'Custom JS',
           click() {
             shell.openItem(configDir('custom.js'))
+          }
+        },
+        {
+          label: 'Turn On Floating Mode',
+          click() {
+            config.set('floating', true)
+            app.relaunch()
+            app.exit()
           }
         },
         {

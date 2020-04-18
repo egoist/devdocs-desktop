@@ -1,14 +1,24 @@
 const path = require('path')
 const { app, Menu, Tray } = require('electron')
+const config = require('./config')
 
 let tray = null
 
-exports.create = win => {
-  if (process.platform === 'darwin' || tray) {
+exports.create = (win, app) => {
+  if (tray) {
     return
   }
 
-  const iconPath = path.join(__dirname, 'static/tray.png')
+  let iconPath;
+  if (process.platform === 'darwin') {
+    if (config.get('floating')) {
+      iconPath = path.join(__dirname, 'static/tray-mac.png')
+    } else {
+      return
+    }
+  } else {
+    iconPath = path.join(__dirname, 'static/tray.png')
+  }
 
   const toggleWin = () => {
     if (win.isVisible()) {
@@ -18,13 +28,27 @@ exports.create = win => {
     }
   }
 
-  const contextMenu = Menu.buildFromTemplate([
+  let menuItems = [
     {
-      label: 'Toggle',
+      label: 'Toggle Window',
       click() {
         toggleWin()
       }
-    },
+    }
+  ];
+  if (process.platform === 'darwin') {
+    menuItems = menuItems.concat([
+      {
+        label: 'Turn Off Floating Mode',
+        click() {
+          config.set('floating', false)
+          app.relaunch()
+          app.exit()
+        }
+      },
+    ])
+  }
+  menuItems = menuItems.concat([
     {
       type: 'separator'
     },
@@ -32,6 +56,8 @@ exports.create = win => {
       role: 'quit'
     }
   ])
+
+  const contextMenu = Menu.buildFromTemplate(menuItems)
 
   tray = new Tray(iconPath)
   tray.setToolTip(`${app.getName()}`)
