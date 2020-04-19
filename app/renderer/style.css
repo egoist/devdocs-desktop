@@ -72,7 +72,19 @@ body {
 .header .app-title {
   font-size: 12px;
   font-weight: 400;
+  text-align: center;
   margin: 0;
+}
+
+.header .pin {
+  font-size: 12px;
+  margin: 0;
+  margin-left: 3px;
+  fill: #666666;
+}
+
+.header .pin.pinned {
+  fill: #2C70F4;
 }
 
 .is-darwin .header {
