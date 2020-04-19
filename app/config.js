@@ -9,6 +9,7 @@ module.exports = new Config({
     shortcut: {
       toggleApp: null
     },
-    mode: 'dark'
+    mode: 'dark',
+    floating: false
   }
 })

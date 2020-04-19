@@ -26,12 +26,31 @@ function ensureCustomFiles() {
 function createHeader() {
   const header = document.createElement('header')
   header.className = 'header'
-  header.innerHTML = '<h1 id="title" class="app-title">Loading DevDocs...</h1>'
+  header.innerHTML = `
+  <h1 id="title" class="app-title">Loading DevDocs...</h1>
+  <span id="pin" class="pin">
+    <svg width="24" height="24">
+    <path d="M8.946,12.595L12.407,8.662L12.026,8.282L13.029,6.733L17.267,10.971L15.77,12.026L15.338,11.593L11.454,15.102L12.032,15.68L11.196,16.517L9.759,15.08L7.223,17.267L6.733,16.777L8.872,14.192L7.579,12.9L8.416,12.064L8.946,12.595Z" />
+    </g>
+    </svg>
+  </span>
+  `
   header.addEventListener('dblclick', () => {
     win.maximize()
   })
   header.addEventListener('click', () => {
     webview.focus()
+  })
+
+  const pin = header.querySelector('.pin')
+  if (config.get('floating')) {
+    pin.classList.add('pinned')
+  }
+  pin.addEventListener('click', () => {
+    const app = remote.app
+    config.set('floating', !config.get('floating'))
+    app.relaunch()
+    app.exit()
   })
 
   document.body.append(header)
