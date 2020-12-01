@@ -3,7 +3,8 @@ const {
   shell,
   globalShortcut,
   BrowserWindow,
-  dialog
+  dialog,
+  ipcMain: ipc
 } = require('electron')
 const axios = require('axios')
 const semverCompare = require('semver-compare')
@@ -46,6 +47,15 @@ function createMenu(opts) {
           label: 'Custom JS',
           click() {
             shell.openItem(configDir('custom.js'))
+          }
+        },
+        {
+          label: 'Toggle Header Bar',
+          click() {
+            const [win] = BrowserWindow.getAllWindows();
+            const showHeader = !config.get("showHeader");
+            win.webContents.send("toggle-header", showHeader);
+            config.set("showHeader", showHeader);
           }
         },
         {
