@@ -60,7 +60,8 @@ function createMainWindow() {
     },
     webPreferences: {
       nodeIntegration: true,
-      webviewTag: true
+      webviewTag: true,
+      // preload: "renderer/preload-index.js"
     }
   })
 

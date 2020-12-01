@@ -23,10 +23,16 @@ function ensureCustomFiles() {
   }
 }
 
+ipc.on('toggle-header', (event, state) => {
+  const headerBar = document.getElementsByTagName("header")[0];
+  headerBar.style.display = state ? "" : "none";
+});
+
 function createHeader() {
   const header = document.createElement('header')
   header.className = 'header'
   header.innerHTML = '<h1 id="title" class="app-title">Loading DevDocs...</h1>'
+	header.style.display = config.get("showHeader") ? "" : "none";
   header.addEventListener('dblclick', () => {
     win.maximize()
   })
