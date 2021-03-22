@@ -40,7 +40,7 @@ Use <kbd>Ctrl+Shift+D</kbd> (or <kbd>Command+Shift+D</kbd> on macOS) to toggle t
 ### Using Homebrew
 
 ```
-brew cask install devdocs
+brew install --cask devdocs
 ```
 
 ### Manual download
