@@ -55,7 +55,8 @@
         "error",
         5
       ],
-      "import/order": "off"
+      "import/order": "off",
+      "comma-dangle": "off"
     }
   },
   "build": {
