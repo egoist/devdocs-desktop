@@ -10,7 +10,7 @@ const login = require('./login')
 
 require('electron-debug')()
 require('electron-context-menu')({
-  showInspectElement: true
+  showInspectElement: true,
 })
 
 app.setAppUserModelId('sh.egoist.devdocs')
@@ -56,12 +56,14 @@ function createMainWindow() {
     titleBarStyle: process.platform === 'darwin' ? 'hidden' : 'default',
     trafficLightPosition: {
       x: 10,
-      y: 10
+      y: 10,
     },
     webPreferences: {
       nodeIntegration: true,
-      webviewTag: true
-    }
+      webviewTag: true,
+      contextIsolation: false,
+      enableRemoteModule: true,
+    },
   })
 
   if (process.platform === 'darwin') {
@@ -100,15 +102,15 @@ app.on('ready', () => {
         name,
         accelerator,
         registered: false,
-        action: toggleWindow
+        action: toggleWindow,
       })
     }
   }
 
   Menu.setApplicationMenu(
     createMenu({
-      toggleWindow
-    })
+      toggleWindow,
+    }),
   )
   mainWindow = createMainWindow()
   tray.create(mainWindow)
