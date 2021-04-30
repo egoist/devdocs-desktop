@@ -59,7 +59,7 @@ body {
 
 .header {
   height: 24px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
   font-size: 12px;
