@@ -72,6 +72,14 @@ function createWebView() {
     webview.focus()
   })
 
+  ipc.on('history-back', () => {
+    webview.goBack()
+  })
+
+  ipc.on('history-forward', () => {
+    webview.goForward()
+  })
+
   ipc.on('link', (e, url) => {
     const route = url.replace('devdocs://', '')
     const SEACH_RE = /^search\/(.+)$/
