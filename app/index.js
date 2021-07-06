@@ -34,10 +34,11 @@ app.on('second-instance', () => {
 })
 
 function toggleWindow() {
-  if (mainWindow.isVisible()) {
-    mainWindow.hide()
+  if (mainWindow.isFocused()) {
+    Menu.sendActionToFirstResponder('hide:')
   } else {
     mainWindow.show()
+    mainWindow.focus()
   }
 }
 
