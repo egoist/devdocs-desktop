@@ -35,6 +35,7 @@ app.on('second-instance', () => {
 
 function toggleWindow() {
   if (mainWindow.isVisible()) {
+    mainWindow.minimize()
     mainWindow.hide()
   } else {
     mainWindow.show()
@@ -79,6 +80,7 @@ function createMainWindow() {
       if (process.platform === 'darwin') {
         app.hide()
       } else {
+        win.minimize()
         win.hide()
       }
     }
